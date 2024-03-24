@@ -35,9 +35,9 @@ namespace ECommerceAPI.Persistence.Repositories
 			Table.RemoveRange(datas);
 			return true;
 		}
-		public async Task<bool> RemoveAsync(int? id)
+		public async Task<bool> RemoveAsync(string id)
 		{
-			T model = await Table.FirstOrDefaultAsync(data => data.Id == (int)id);
+			T model = await Table.FirstOrDefaultAsync(data => data.Id == Guid.Parse(id));
 			return Remove(model);
 		}
 		public bool Update(T model)

@@ -33,11 +33,10 @@ namespace ECommerceAPI.API.Controllers
 		[HttpGet]
 		public async Task Get()
 		{
-
-
-			Order order = await _orderReadRepository.GetByIdAsync(4);
-			order.Address = "Ehmedli";
-			await _orderWriteRepository.SaveAsync();
+			
+			//Order order = await _orderReadRepository.GetByIdAsync(4);
+			//order.Address = "Ehmedli";
+			//await _orderWriteRepository.SaveAsync();
 		}
 
 		//[HttpGet("{id}")]
