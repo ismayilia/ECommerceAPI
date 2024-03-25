@@ -12,6 +12,6 @@ import { ComponentsModule } from './components/components.module';
   imports: [
     CommonModule,
     ComponentsModule
-  ]
+    ]
 })
 export class LayoutModule { }
