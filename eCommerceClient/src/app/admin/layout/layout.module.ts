@@ -4,14 +4,13 @@ import { LayoutComponent } from './layout.component';
 import { ComponentsModule } from './components/components.module';
 
 
-
 @NgModule({
   declarations: [
     // LayoutComponent
   ],
   imports: [
     CommonModule,
-    ComponentsModule
+    ComponentsModule,
     ]
 })
 export class LayoutModule { }

@@ -15,6 +15,8 @@ import { ProductsComponent } from './ui/components/products/products.component';
   ],
   imports: [
     CommonModule,
+    AdminModule,
+    UiModule
     
   ],
   providers: [],
