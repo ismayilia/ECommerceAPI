@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { LayoutComponent } from "./admin/layout/layout.component";
 import { CommonModule } from '@angular/common';
-declare var mm: any;
+declare var $: any;
 
 @Component({
   selector: 'app-root',
@@ -15,9 +15,9 @@ export class AppComponent implements OnInit {
 
   title = 'eCommerceClient';
   ngOnInit() {
-    $(function () {
-      alert("salam");
-    });
+    // $(function () {
+    //   alert("salam");
+    // });
   }
 
 }
