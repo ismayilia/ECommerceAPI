@@ -1,23 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
-import { LayoutComponent } from "./admin/layout/layout.component";
 import { CommonModule } from '@angular/common';
+import { CustomToastrService, ToastrMessageType, ToastrPosition } from './services/ui/custom-toastr.service';
+import { BrowserModule } from '@angular/platform-browser';
 declare var $: any;
+
+
 
 @Component({
   selector: 'app-root',
-  standalone: true,
+  standalone:true,
+  imports:[RouterOutlet,RouterModule,CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [RouterOutlet, RouterModule, CommonModule]
 })
-export class AppComponent implements OnInit {
+export class AppComponent{
 
   title = 'eCommerceClient';
-  ngOnInit() {
-    // $(function () {
-    //   alert("salam");
-    // });
+
+  constructor(private toasterService: CustomToastrService){
+    
+    toasterService.message("salam", "Isi",{
+      messageType:ToastrMessageType.Success,
+      position:ToastrPosition.BottomCenter
+    });
+    toasterService.message("salam", "Isi",{
+      messageType:ToastrMessageType.Error,
+      position:ToastrPosition.BottomCenter
+    });
   }
 
 }

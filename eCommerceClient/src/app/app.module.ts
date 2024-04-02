@@ -8,18 +8,21 @@ import { RouterModule } from '@angular/router'; // RouterModule'ı içe aktarın
 import { routes } from './app.routes'; // Rotaları içe aktarın
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductsComponent } from './ui/components/products/products.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
-    // AppComponent
   ],
   imports: [
     CommonModule,
-    AdminModule,
-    UiModule
+    RouterModule,
+    ToastrModule.forRoot(),
+    BrowserModule,
+    BrowserAnimationsModule,
     
   ],
   providers: [],
-  bootstrap: [] // AppComponent'i bootstrap olarak belirtin
+  bootstrap: []
 })
+
 export class AppModule { }

@@ -4,8 +4,10 @@ import path from 'path';
 import { LayoutComponent } from './admin/layout/layout.component';
 import { DashboardComponent } from './admin/components/dashboard/dashboard.component';
 import { HomeComponent } from './ui/components/home/home.component';
+import { ToastalertComponent } from './component/toastalert/toastalert.component';
 
 export const routes: Routes = [
+    {path: "toast", component:ToastalertComponent},
     {
         path: "admin", component: LayoutComponent, children: [
             {
