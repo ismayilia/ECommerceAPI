@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2uAITix5wAbpUz5O+rMw5zMRI3U3tqG2Dj1mjbpDvALcFsbKNqh59e09JQ8uxBYtCXtH6/BpJtCeGUhxt4hPDw==",
+  "dgSpecHash": "WG5+JFGN7jMPy8L5oALb4+wdmvkiAjoOPZIV9vu+F+utdyeKfmvsLVeyDjF1j946qNQ0F5n8nJ2hZ/kYqAXYtA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\HP\\Desktop\\eCommerce\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\ECommerceAPI.API.csproj",
+  "projectFilePath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\ECommerceAPI.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

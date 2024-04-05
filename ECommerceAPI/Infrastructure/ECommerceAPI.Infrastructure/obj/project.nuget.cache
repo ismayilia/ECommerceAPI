@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Tmw+nJ7uoV6MriS5Fh5UYgDa1ExTjpY7krpW10rt8TgMubBRg6rP+6cuo7zF0PFkFWIIAdPlxsjP5Rjm5mqYhQ==",
+  "dgSpecHash": "Kt8WxtgXa6dJJ11+a4GQVaT0c2ahMrRfjKSaOm0P1/vG+P8pzL4uPJQ8CzbZreg/Xfff8pCLn/+tf6oYD8Mevg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\HP\\Desktop\\eCommerce\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.28\\microsoft.entityframeworkcore.6.0.28.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.28\\microsoft.entityframeworkcore.abstractions.6.0.28.nupkg.sha512",

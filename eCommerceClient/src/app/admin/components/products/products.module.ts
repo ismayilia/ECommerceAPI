@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductsComponent } from './products.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -9,6 +10,7 @@ import { RouterModule } from '@angular/router';
   declarations: [],
   imports: [
     CommonModule,
+    HttpClientModule,
     RouterModule.forChild([
       {path: "", component:ProductsComponent}
     ])
