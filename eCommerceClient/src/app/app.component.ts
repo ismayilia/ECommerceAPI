@@ -7,6 +7,7 @@ import {NgxSpinnerModule } from 'ngx-spinner';
 import { data } from 'jquery';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientService } from './services/common/http-client.service';
+import { ProductService } from './services/common/modedls/product.service';
 declare var $: any;
 
 
@@ -17,7 +18,7 @@ declare var $: any;
   imports:[RouterOutlet,RouterModule,CommonModule,NgxSpinnerModule,HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers:[HttpClientService,
+  providers:[ProductService,HttpClientService,
     {provide: "baseUrl", useValue: "https://localhost:7047/api", multi: true}
   ]
 })

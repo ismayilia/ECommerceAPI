@@ -8,6 +8,7 @@ import { ToastalertComponent } from './component/toastalert/toastalert.component
 
 export const routes: Routes = [
     {path: "toast", component:ToastalertComponent},
+    
     {
         path: "admin", component: LayoutComponent, children: [
             {
