@@ -1,5 +1,8 @@
+using ECommerceAPI.Application.Validators.Products;
+using ECommerceAPI.Infrastructure.Filters;
 using ECommerceAPI.Persistence;
 using ECommerceAPI.Persistence.Context;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -14,7 +17,13 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
 	policy.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowAnyMethod()
 ));
 
-builder.Services.AddControllers();
+
+//addcontrollersin icinde olanlar validationfilteri ucundur
+builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>())
+	.AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<CreateProductValidator>())
+	.ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);
+//butun validatonlari register edir. hamisi ucun
+
 
 //builder.Services.AddDbContext<ECommerceAPIDbContext>(options =>
 //		options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
