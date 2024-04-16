@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -25,6 +25,8 @@ export class CreateComponent extends BaseComponent implements OnInit {
 
   }
 
+  @Output() createdProduct: EventEmitter<Create_Product> = new EventEmitter()
+
   create(name: HTMLInputElement, stock: HTMLInputElement, price: HTMLInputElement) {
     this.showSpinner(SpinnerType.BallAtom)
     const create_product: Create_Product = new Create_Product();
@@ -33,31 +35,14 @@ export class CreateComponent extends BaseComponent implements OnInit {
     create_product.price = parseFloat(price.value);
 
 
-    if(!name.value) {
-      this.alertify.message("Zəhmət olmasa məhsul adını yazın!", {
-        dismissOthers: true,
-        messageType: MessageType.Success,
-        position: Position.TopRight
-      });
-      return;
-    }
-
-    if(parseInt(stock.value) < 0) {
-      this.alertify.message("Zəhmət olmasa stock məlumatını doğru yazın yazın!", {
-        dismissOthers: true,
-        messageType: MessageType.Error,
-        position: Position.TopRight
-      });
-      return;
-    }
-
     this.productService.create(create_product, () => {
       this.hideSpinner(SpinnerType.BallAtom);
       this.alertify.message("Product added.", {
         dismissOthers: true,
-        messageType: MessageType.Error,
+        messageType: MessageType.Success,
         position: Position.TopRight
       });
+      this.createdProduct.emit(create_product);
     },errorMessage => {
       this.alertify.message(errorMessage,
         {
