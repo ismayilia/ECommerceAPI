@@ -1,11 +1,19 @@
 {
   "Version": 1,
-  "Hash": "leoVSQbnpQCMnQK2KQBmXAolIIKBJYeS5oBx2V2Akto=",
+  "Hash": "u6taRF5gZG43FAmfP8jWIExX21FiMikCd0/HHhdmRzY=",
   "Source": "ECommerceAPI.API",
   "BasePath": "_content/ECommerceAPI.API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ECommerceAPI.API\\wwwroot",
+      "Source": "ECommerceAPI.API",
+      "ContentRoot": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\",
+      "BasePath": "_content/ECommerceAPI.API",
+      "Pattern": "**"
+    }
+  ],
   "Assets": []
 }

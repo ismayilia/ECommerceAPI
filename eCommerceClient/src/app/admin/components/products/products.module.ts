@@ -4,6 +4,7 @@ import { ProductsComponent } from './products.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { DeleteDirective } from '../../../directives/admin/delete.directive';
+import { FileUploadModule } from '../../../services/common/file-upload/file-upload.module';
 
 
 

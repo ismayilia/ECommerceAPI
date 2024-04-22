@@ -155,3 +155,4 @@ C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\ECommerceAPI.Infrastructure.dll
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\ECommerceAPI.Infrastructure.pdb
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\ECommerceAPI.API.staticwebassets.runtime.json
