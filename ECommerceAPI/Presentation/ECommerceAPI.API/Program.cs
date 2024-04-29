@@ -1,6 +1,7 @@
 using ECommerceAPI.Application.Validators.Products;
 using ECommerceAPI.Infrastructure.Filters;
 using ECommerceAPI.Persistence;
+using ECommerceAPI.Infrastructure;
 using ECommerceAPI.Persistence.Context;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddPersistenceServices();
+builder.Services.AddInfrastructureServices();
 
 // browser cors-a icaze vermek (yungulleshdirmek)
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
