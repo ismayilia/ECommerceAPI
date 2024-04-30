@@ -17,16 +17,35 @@ namespace ECommerceAPI.API.Controllers
 		readonly private IProductReadRepository _productReadRepository;
 		readonly private IWebHostEnvironment _webHostEnvironment;
 		readonly private IFileService _fileService;
+		readonly private IFileWriteRepository _fileWriteRepository;
+		readonly private IFileReadRepository _fileReadRepository;
+		readonly private IProductImageFileWriteRepository _productImageFileWriteRepository;
+		readonly private IProductImageFileReadRepository _productImageFileReadRepository;
+		readonly private IInvoiceFileReadRepository _invoiceFileReadRepository;
+		readonly private IInvoiceFileWriteRepository _invoiceFileWriteRepository;
 
 		public ProductsController(IProductWriteRepository productWriteRepository,
 									IProductReadRepository productReadRepository,
 									IWebHostEnvironment webHostEnvironment,
-									IFileService fileService)
+									IFileService fileService,
+									IInvoiceFileReadRepository invoiceFileReadRepository,
+									IInvoiceFileWriteRepository invoiceFileWriteRepository,
+									IProductImageFileReadRepository productImageFileReadRepository,
+									IProductImageFileWriteRepository productImageFileWriteRepository,
+									IFileWriteRepository fileWriteRepository,
+									IFileReadRepository fileReadRepository)
 		{
 			_productReadRepository = productReadRepository;
 			_productWriteRepository = productWriteRepository;
 			_webHostEnvironment = webHostEnvironment;
 			_fileService = fileService;
+			_invoiceFileReadRepository = invoiceFileReadRepository;
+			_invoiceFileWriteRepository = invoiceFileWriteRepository;
+			_fileWriteRepository = fileWriteRepository;
+			_fileReadRepository = fileReadRepository;
+			_productImageFileReadRepository = productImageFileReadRepository;
+			_productImageFileWriteRepository = productImageFileWriteRepository;
+
 		}
 
 		[HttpGet]
@@ -98,7 +117,34 @@ namespace ECommerceAPI.API.Controllers
 
 		public async Task<IActionResult> Upload()
 		{
-			await _fileService.UploadAsync("resource/product-images", Request.Form.Files);
+			var datas = await _fileService.UploadAsync("resource/files", Request.Form.Files);
+
+			//await _productImageFileWriteRepository.AddRangeAsync(datas.Select(d => new ProductImageFile
+			//{
+			//	FileName = d.fileName,
+			//	Path = d.path,
+			//}).ToList());
+			//await _productImageFileWriteRepository.SaveAsync();
+
+			//await _invoiceFileWriteRepository.AddRangeAsync(datas.Select(d => new InvoiceFile
+			//{
+			//	FileName = d.fileName,
+			//	Path = d.path,
+			//	Price = new Random().Next()
+			//}).ToList());
+			//await _invoiceFileWriteRepository.SaveAsync();
+
+			//await _fileWriteRepository.AddRangeAsync(datas.Select(d => new Domain.Entities.File
+			//{
+			//	FileName = d.fileName,
+			//	Path = d.path,
+			//}).ToList());
+			//await _fileWriteRepository.SaveAsync();
+
+			//var d1 = _fileReadRepository.GetAll(false);
+			//var d2 = _invoiceFileReadRepository.GetAll(false);
+			//var d3 = _productImageFileReadRepository.GetAll(false);
+
 			return Ok();
 
 		}
