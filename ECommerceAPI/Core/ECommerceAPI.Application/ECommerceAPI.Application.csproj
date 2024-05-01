@@ -7,6 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Abstractions\Storage\AWS\**" />
+    <Compile Remove="Abstractions\Storage\Azure\**" />
+    <EmbeddedResource Remove="Abstractions\Storage\AWS\**" />
+    <EmbeddedResource Remove="Abstractions\Storage\Azure\**" />
+    <None Remove="Abstractions\Storage\AWS\**" />
+    <None Remove="Abstractions\Storage\Azure\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.9.0" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.28" />
@@ -14,6 +23,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ECommerceAPI.Domain\ECommerceAPI.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

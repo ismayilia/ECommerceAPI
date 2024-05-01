@@ -10,5 +10,10 @@
     <ProjectReference Include="..\..\Core\ECommerceAPI.Application\ECommerceAPI.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\Storage\Azure\" />
+    <Folder Include="Services\Storage\AWS\" />
+  </ItemGroup>
+
 </Project>
                          

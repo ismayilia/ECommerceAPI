@@ -1,11 +1,9 @@
-﻿using ECommerceAPI.Application.Services;
-using ECommerceAPI.Infrastructure.Operations;
+﻿using ECommerceAPI.Infrastructure.Operations;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 
 namespace ECommerceAPI.Infrastructure.Services
 {
-	public class FileService : IFileService
+	public class FileService
 	{
 		readonly private IWebHostEnvironment _webHostEnvironment;
 		public FileService(IWebHostEnvironment webHostEnvironment)
@@ -13,24 +11,6 @@ namespace ECommerceAPI.Infrastructure.Services
 			_webHostEnvironment = webHostEnvironment;
 		}
 
-		public async Task<bool> CopyFIleAsync(string path, IFormFile file)
-		{
-			try
-			{
-				await using FileStream fileStream = new(path, FileMode.Create, FileAccess.Write, FileShare.None, 1024 * 1024
-					, useAsync: false);
-
-				await file.CopyToAsync(fileStream);
-				await fileStream.FlushAsync();
-				return true;
-			}
-			catch (Exception ex)
-			{
-				//todo log!
-
-				throw ex;
-			}
-		}
 
 		async Task<string> FileRenameAsync(string path, string fileName, bool first = true)
 		{
@@ -102,32 +82,5 @@ namespace ECommerceAPI.Infrastructure.Services
 
 		}
 
-		public async Task<List<(string fileName, string path)>> UploadAsync(string path, IFormFileCollection files)
-		{
-			string uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, path);
-
-			if (!Directory.Exists(uploadPath))
-				Directory.CreateDirectory(uploadPath);
-
-			List<(string fileName, string path)> datas = new();
-			List<bool> results = new();
-			foreach (IFormFile file in files)
-			{
-				string fileNewName = await FileRenameAsync(uploadPath,file.FileName);
-				bool result = await CopyFIleAsync($"{uploadPath}\\{fileNewName}", file);
-				datas.Add((fileNewName, $"{path}\\{fileNewName}"));
-				results.Add(result);
-
-			}
-
-			// hamisinin true olub olmamamgin yoxlayir
-			if (results.TrueForAll(r => r.Equals(true)))
-				return datas;
-
-			return null;
-
-			//todo egerki yuxaridaki if kecerli deyilse burda file-larin kompda(serverden) yuklenerken xeta aldigina dair
-			//xebardaredici bir exception yaradilib geri dondermek lazimdir;	
-		}
 	}
 }

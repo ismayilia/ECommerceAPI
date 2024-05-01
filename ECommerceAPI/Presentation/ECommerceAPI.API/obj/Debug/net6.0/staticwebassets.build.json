@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1hVcmnycaaUm4rPr75Yox/TU/fl091etKFZmn0/fcyw=",
+  "Hash": "4cV86f7lNJ+QSfuor1FSdPa16hxitWA5/R6og2ckcHs=",
   "Source": "ECommerceAPI.API",
   "BasePath": "_content/ECommerceAPI.API",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\resource\\invoices\\logo.png",
+      "Identity": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\resource\\files\\slider2.jpg",
       "SourceId": "ECommerceAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\",
       "BasePath": "_content/ECommerceAPI.API",
-      "RelativePath": "resource/invoices/logo.png",
+      "RelativePath": "resource/files/slider2.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -31,15 +31,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\resource\\invoices\\logo.png"
+      "OriginalItemSpec": "wwwroot\\resource\\files\\slider2.jpg"
     },
     {
-      "Identity": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\resource\\invoices\\swiss.jpg",
+      "Identity": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\resource\\files\\slider3.jpg",
       "SourceId": "ECommerceAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\",
       "BasePath": "_content/ECommerceAPI.API",
-      "RelativePath": "resource/invoices/swiss.jpg",
+      "RelativePath": "resource/files/slider3.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -48,58 +48,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\resource\\invoices\\swiss.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\resource\\product-images\\banner.jpg",
-      "SourceId": "ECommerceAPI.API",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\",
-      "BasePath": "_content/ECommerceAPI.API",
-      "RelativePath": "resource/product-images/banner.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\resource\\product-images\\banner.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\resource\\product-images\\evade.jpg",
-      "SourceId": "ECommerceAPI.API",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\",
-      "BasePath": "_content/ECommerceAPI.API",
-      "RelativePath": "resource/product-images/evade.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\resource\\product-images\\evade.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\resource\\product-images\\service.jpg",
-      "SourceId": "ECommerceAPI.API",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\",
-      "BasePath": "_content/ECommerceAPI.API",
-      "RelativePath": "resource/product-images/service.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\resource\\product-images\\service.jpg"
+      "OriginalItemSpec": "wwwroot\\resource\\files\\slider3.jpg"
     }
   ]
 }

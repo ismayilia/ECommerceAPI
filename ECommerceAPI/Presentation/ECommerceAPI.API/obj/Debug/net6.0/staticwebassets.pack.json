@@ -1,24 +1,12 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\resource\\invoices\\logo.png",
-      "PackagePath": "staticwebassets\\resource\\invoices\\logo.png"
+      "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\resource\\files\\slider2.jpg",
+      "PackagePath": "staticwebassets\\resource\\files\\slider2.jpg"
     },
     {
-      "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\resource\\invoices\\swiss.jpg",
-      "PackagePath": "staticwebassets\\resource\\invoices\\swiss.jpg"
-    },
-    {
-      "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\resource\\product-images\\banner.jpg",
-      "PackagePath": "staticwebassets\\resource\\product-images\\banner.jpg"
-    },
-    {
-      "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\resource\\product-images\\evade.jpg",
-      "PackagePath": "staticwebassets\\resource\\product-images\\evade.jpg"
-    },
-    {
-      "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\resource\\product-images\\service.jpg",
-      "PackagePath": "staticwebassets\\resource\\product-images\\service.jpg"
+      "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\resource\\files\\slider3.jpg",
+      "PackagePath": "staticwebassets\\resource\\files\\slider3.jpg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.ECommerceAPI.API.Microsoft.AspNetCore.StaticWebAssets.props",
