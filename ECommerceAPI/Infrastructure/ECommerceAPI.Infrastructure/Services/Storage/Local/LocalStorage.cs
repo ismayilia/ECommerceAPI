@@ -31,6 +31,8 @@ namespace ECommerceAPI.Infrastructure.Services.Storage.Local
 			return directory.GetFiles().Select(f => f.Name).ToList();
 		}
 
+
+		//bb
 		public bool HasFile(string path, string fileName)
 
 			=> File.Exists($"{path}\\{fileName}");
