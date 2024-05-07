@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pejwC/leup1R5w0r30otQDDLQLs+A9oH/z5q/viD7S2ZnGJnxhO5ZR8lUkejWHfJLU/gjEiPCDRekj7O4C9/Aw==",
+  "dgSpecHash": "TrPikly/NqhR5dTI0FjWTD/z8hmUzu8FNC/TeLNKVOGO9wXjR3UKfCUVMRRwqkHNbUEYKIgQHaFvmndVn89UXg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\ECommerceAPI.API.csproj",
+  "projectFilePath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\ECommerceAPI.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\azure.core\\1.36.0\\azure.core.1.36.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\azure.storage.blobs\\12.19.1\\azure.storage.blobs.12.19.1.nupkg.sha512",

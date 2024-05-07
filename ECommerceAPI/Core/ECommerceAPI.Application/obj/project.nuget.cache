@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Y69FzEutjR4wlokVzpw0gY+3nGZscdpX366BVuGepMKcpdNWHi0JbSGqYJEVYUVEEV0mKEgCc5NtYIUQzr2AOQ==",
+  "dgSpecHash": "9xA4GoFXjILhUc4daSUie1c/+skSm2bxkL1FZ6iDSSedRU35MC4O2293EzKfOXdfI2JzsKXBnudmeOUn0p4ERg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj",
+  "projectFilePath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",

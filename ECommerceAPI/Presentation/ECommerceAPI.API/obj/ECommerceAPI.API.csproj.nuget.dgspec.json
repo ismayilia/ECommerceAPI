@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\ECommerceAPI.API.csproj": {}
+    "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\ECommerceAPI.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj": {
+    "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj",
         "projectName": "ECommerceAPI.Application",
-        "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj",
+        "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Application\\obj\\",
+        "outputPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj": {
-                "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj"
+              "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj": {
+                "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj"
               }
             }
           }
@@ -77,14 +77,14 @@
         }
       }
     },
-    "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj": {
+    "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj",
         "projectName": "ECommerceAPI.Domain",
-        "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj",
+        "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Domain\\obj\\",
+        "outputPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -132,14 +132,14 @@
         }
       }
     },
-    "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj": {
+    "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj",
         "projectName": "ECommerceAPI.Infrastructure",
-        "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -156,8 +156,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj": {
-                "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj"
+              "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj": {
+                "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj"
               }
             }
           }
@@ -197,14 +197,14 @@
         }
       }
     },
-    "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Persistence\\ECommerceAPI.Persistence.csproj": {
+    "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Persistence\\ECommerceAPI.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Persistence\\ECommerceAPI.Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Persistence\\ECommerceAPI.Persistence.csproj",
         "projectName": "ECommerceAPI.Persistence",
-        "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Persistence\\ECommerceAPI.Persistence.csproj",
+        "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Persistence\\ECommerceAPI.Persistence.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Persistence\\obj\\",
+        "outputPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -221,8 +221,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj": {
-                "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj"
+              "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj": {
+                "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj"
               }
             }
           }
@@ -284,14 +284,14 @@
         }
       }
     },
-    "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\ECommerceAPI.API.csproj": {
+    "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\ECommerceAPI.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\ECommerceAPI.API.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\ECommerceAPI.API.csproj",
         "projectName": "ECommerceAPI.API",
-        "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\ECommerceAPI.API.csproj",
+        "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\ECommerceAPI.API.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\obj\\",
+        "outputPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -309,14 +309,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj": {
-                "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj"
+              "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj": {
+                "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj"
               },
-              "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj"
+              "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj"
               },
-              "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Persistence\\ECommerceAPI.Persistence.csproj": {
-                "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Persistence\\ECommerceAPI.Persistence.csproj"
+              "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Persistence\\ECommerceAPI.Persistence.csproj": {
+                "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Persistence\\ECommerceAPI.Persistence.csproj"
               }
             }
           }
