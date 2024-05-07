@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ECommerceAPI.Infrastructure.Services.Storage.Azure
 {
-	public class AzureStorage : IAzureStorage
+	public class AzureStorage : Storage, IAzureStorage
 	{
 		// azure storage accounta connect ucuncundur
 		readonly BlobServiceClient _blobServiceClient;
@@ -57,11 +57,12 @@ namespace ECommerceAPI.Infrastructure.Services.Storage.Azure
 
 			foreach (IFormFile file in files)
 			{
+				string fileNewName = await FileRenameAsync(containerName, file.Name, HasFile);
 				//upload edeceyimiz file gosteririk ve ya gotururuk 
 				BlobClient blobClient = _blobContainerClient.GetBlobClient(file.Name);
 				//iformfile tipinden olan butun fayllari "stream"-e cevire bilirik bunun ucun "openreadstream" methodudu!
 				await blobClient.UploadAsync(file.OpenReadStream());
-				datas.Add((file.Name, containerName));
+				datas.Add((fileNewName, $"{containerName}/{fileNewName}"));
 			}
 
 			return datas;
