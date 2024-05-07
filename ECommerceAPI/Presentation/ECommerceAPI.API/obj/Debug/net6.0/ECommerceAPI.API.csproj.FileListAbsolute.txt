@@ -156,3 +156,9 @@ C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\ECommerceAPI.Infrastructure.dll
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\ECommerceAPI.Infrastructure.pdb
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\ECommerceAPI.API.staticwebassets.runtime.json
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\Azure.Core.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\Azure.Storage.Blobs.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\Azure.Storage.Common.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\System.IO.Hashing.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\System.Memory.Data.dll

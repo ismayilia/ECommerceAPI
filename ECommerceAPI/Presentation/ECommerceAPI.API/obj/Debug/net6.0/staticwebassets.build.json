@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4cV86f7lNJ+QSfuor1FSdPa16hxitWA5/R6og2ckcHs=",
+  "Hash": "I7/sgJI5O50iDjIkzU2bM+UAnJueqvkKcU6WAP6cw2w=",
   "Source": "ECommerceAPI.API",
   "BasePath": "_content/ECommerceAPI.API",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\resource\\files\\slider2.jpg",
+      "Identity": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\files\\banner.jpg",
       "SourceId": "ECommerceAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\",
       "BasePath": "_content/ECommerceAPI.API",
-      "RelativePath": "resource/files/slider2.jpg",
+      "RelativePath": "files/banner.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -31,15 +31,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\resource\\files\\slider2.jpg"
+      "OriginalItemSpec": "wwwroot\\files\\banner.jpg"
     },
     {
-      "Identity": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\resource\\files\\slider3.jpg",
+      "Identity": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\files\\featured.jpg",
       "SourceId": "ECommerceAPI.API",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\",
       "BasePath": "_content/ECommerceAPI.API",
-      "RelativePath": "resource/files/slider3.jpg",
+      "RelativePath": "files/featured.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -48,7 +48,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\resource\\files\\slider3.jpg"
+      "OriginalItemSpec": "wwwroot\\files\\featured.jpg"
     }
   ]
 }

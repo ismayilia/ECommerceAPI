@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TxmQ33Ats+QdRZcdBu7OwZSejhVQNmUWuQ3XjBv36a0ptOS2tDSBIsQn8oB/OR/FIeDaR1FSC6chiV9D0Kedzg==",
+  "dgSpecHash": "ZFQEoXGkSSOezsb7uaf/CBlAfkdt4fYIpHG28jfKL5vk50XCuF/4+cRQVB7ih5ZY1CHOE3pBLFMfobdF/PN92g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj",
+  "projectFilePath": "C:\\Users\\HP\\Desktop\\ECommerceAPIs\\ECommerceAPI\\Core\\ECommerceAPI.Domain\\ECommerceAPI.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

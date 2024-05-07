@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace ECommerceAPI.Infrastructure.Services.Storage.Local
 {
 
-	public class LocalStorage : ILocalStorage
+	public class LocalStorage :  Storage, ILocalStorage
 	{
 
 		readonly private IWebHostEnvironment _webHostEnvironment;
@@ -32,25 +32,29 @@ namespace ECommerceAPI.Infrastructure.Services.Storage.Local
 		}
 
 
-		//bb
+		// path-e gore yoxlayir
 		public bool HasFile(string path, string fileName)
-
 			=> File.Exists($"{path}\\{fileName}");
 
 		public async Task<List<(string fileName, string pathOrContainerName)>> UploadAsync(string path, IFormFileCollection files)
 		{
 			string uploadPath = Path.Combine(_webHostEnvironment.WebRootPath, path);
 
+			//file-lara gore yoxlayir
 			if (!Directory.Exists(uploadPath))
 				Directory.CreateDirectory(uploadPath);
 
 			List<(string fileName, string path)> datas = new();
 			List<bool> results = new();
+
 			foreach (IFormFile file in files)
 			{
 				//string fileNewName = await FileRenameAsync(uploadPath, file.FileName);
-				await CopyFIleAsync($"{uploadPath}\\{file.Name}", file);
-				datas.Add((file.Name, $"{path}\\{file.Name}"));
+
+				string fileNewName = await FileRenameAsync(path, file.Name, HasFile);
+
+				await CopyFIleAsync($"{uploadPath}\\{fileNewName}", file);
+				datas.Add((fileNewName, $"{path}\\{fileNewName}"));
 
 			}
 

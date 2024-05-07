@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -8,11 +8,8 @@
 
   <ItemGroup>
     <Compile Remove="Abstractions\Storage\AWS\**" />
-    <Compile Remove="Abstractions\Storage\Azure\**" />
     <EmbeddedResource Remove="Abstractions\Storage\AWS\**" />
-    <EmbeddedResource Remove="Abstractions\Storage\Azure\**" />
     <None Remove="Abstractions\Storage\AWS\**" />
-    <None Remove="Abstractions\Storage\Azure\**" />
   </ItemGroup>
 
   <ItemGroup>
