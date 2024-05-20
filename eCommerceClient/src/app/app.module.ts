@@ -1,28 +1,37 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {
+  BrowserModule,
+  provideClientHydration,
+} from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { AdminModule } from './admin/admin.module';
 import { UiModule } from './ui/ui.module';
-import { RouterModule } from '@angular/router'; // RouterModule'ı içe aktarın
-import { routes } from './app.routes'; // Rotaları içe aktarın
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProductsComponent } from './ui/components/products/products.component';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule, provideToastr } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-  ],
+  declarations: [AppComponent],
   imports: [
-    CommonModule,
-    RouterModule,
-    ToastrModule.forRoot(),
     BrowserModule,
     BrowserAnimationsModule,
-    
+    AppRoutingModule,
+    AdminModule,
+    UiModule,
+    ToastrModule.forRoot(), // ToastrModule added
+    NgxSpinnerModule,
+    HttpClientModule,
   ],
-  providers: [],
-  bootstrap: []
+  providers: [
+    provideClientHydration(),
+    provideAnimationsAsync(),
+    provideToastr(),
+    { provide: 'baseUrl', useValue: 'https://localhost:7047/api', multi: true },
+  ],
+  bootstrap: [AppComponent],
 })
-
-export class AppModule { }
+export class AppModule {}

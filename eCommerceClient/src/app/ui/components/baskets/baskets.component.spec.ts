@@ -8,7 +8,7 @@ describe('BasketsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BasketsComponent]
+      declarations: [BasketsComponent]
     })
     .compileComponents();
     

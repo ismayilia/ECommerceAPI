@@ -8,7 +8,7 @@ describe('SelectProductImageDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SelectProductImageDialogComponent]
+      declarations: [SelectProductImageDialogComponent]
     })
     .compileComponents();
     

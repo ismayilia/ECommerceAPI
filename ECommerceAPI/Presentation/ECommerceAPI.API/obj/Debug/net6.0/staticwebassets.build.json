@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "I7/sgJI5O50iDjIkzU2bM+UAnJueqvkKcU6WAP6cw2w=",
+  "Hash": "Fp7wsE5c+SCT0en3FhBD9dVDKbpiFyVk2fpP4ETrHm0=",
   "Source": "ECommerceAPI.API",
   "BasePath": "_content/ECommerceAPI.API",
   "Mode": "Default",
@@ -49,6 +49,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\files\\featured.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\files\\featured-2.jpg",
+      "SourceId": "ECommerceAPI.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\",
+      "BasePath": "_content/ECommerceAPI.API",
+      "RelativePath": "files/featured-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\files\\featured-2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\files\\swiss.jpg",
+      "SourceId": "ECommerceAPI.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\",
+      "BasePath": "_content/ECommerceAPI.API",
+      "RelativePath": "files/swiss.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\files\\swiss.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\files\\swiss-2.jpg",
+      "SourceId": "ECommerceAPI.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\",
+      "BasePath": "_content/ECommerceAPI.API",
+      "RelativePath": "files/swiss-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\files\\swiss-2.jpg"
     }
   ]
 }

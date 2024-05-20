@@ -1,34 +1,32 @@
 import { Component, Inject, Output } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogActions, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { BaseDialog } from '../base/base-dialog';
-import { FileUploadOptions, FileUploadComponent } from '../../services/common/file-upload/file-upload.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { FileUploadOptions } from '../../services/common/file-upload/file-upload.component';
 
 @Component({
-    selector: 'app-select-product-image-dialog',
-    standalone: true,
-    templateUrl: './select-product-image-dialog.component.html',
-    styleUrl: './select-product-image-dialog.component.scss',
-    imports: [MatDialogModule, MatButtonModule,FileUploadComponent]
+  selector: 'app-select-product-image-dialog',
+  templateUrl: './select-product-image-dialog.component.html',
+  styleUrl: './select-product-image-dialog.component.scss',
 })
 export class SelectProductImageDialogComponent extends BaseDialog<SelectProductImageDialogComponent> {
-  constructor(dialogRef: MatDialogRef<SelectProductImageDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: SelectProductImageState | string,
+  constructor(
+    dialogRef: MatDialogRef<SelectProductImageDialogComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: SelectProductImageState | string
   ) {
-    super(dialogRef)
+    super(dialogRef);
   }
 
   @Output() options: Partial<FileUploadOptions> = {
-    accept: ",png, .jpg, .jpeg, .gif",
-    action: "upload",
-    controller: "products",
-    explanation: "Urun secin veya buraya surukleyin...",
-    isAdminPage: true,
-    queryString: `id=${this.data}`
+    accept: '.png, .jpg, .jpeg, .gif',
+    action:"upload",
+    controller:"products",
+    explanation:"Choose product image(s)...",
+    isAdminPage:true,
+    queryString:`id=${this.data}` 
+
   };
 }
 
 export enum SelectProductImageState {
-  Close
+  Close,
 }

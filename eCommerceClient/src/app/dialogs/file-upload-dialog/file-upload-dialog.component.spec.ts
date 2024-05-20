@@ -8,7 +8,7 @@ describe('FileUploadDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FileUploadDialogComponent]
+      declarations: [FileUploadDialogComponent]
     })
     .compileComponents();
     

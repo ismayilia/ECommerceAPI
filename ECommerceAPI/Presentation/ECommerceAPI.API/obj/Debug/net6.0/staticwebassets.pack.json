@@ -5,8 +5,20 @@
       "PackagePath": "staticwebassets\\files\\banner.jpg"
     },
     {
+      "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\files\\featured-2.jpg",
+      "PackagePath": "staticwebassets\\files\\featured-2.jpg"
+    },
+    {
       "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\files\\featured.jpg",
       "PackagePath": "staticwebassets\\files\\featured.jpg"
+    },
+    {
+      "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\files\\swiss-2.jpg",
+      "PackagePath": "staticwebassets\\files\\swiss-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\files\\swiss.jpg",
+      "PackagePath": "staticwebassets\\files\\swiss.jpg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.ECommerceAPI.API.Microsoft.AspNetCore.StaticWebAssets.props",

@@ -1,22 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { BaseComponent, SpinnerType } from '../../../base/base.component';
+import { Component } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { BaseComponent, SpinnerType } from '../../../base/base.component';
 
 @Component({
   selector: 'app-baskets',
-  standalone: true,
-  imports: [],
   templateUrl: './baskets.component.html',
   styleUrl: './baskets.component.scss'
 })
-export class BasketsComponent extends BaseComponent implements  OnInit{
-
-  constructor(spinner: NgxSpinnerService){
+export class BasketsComponent extends BaseComponent {
+  constructor( spinner: NgxSpinnerService) {
     super(spinner)
   }
-  
-    ngOnInit()
-  {
+
+  ngOnInit(): void {
     this.showSpinner(SpinnerType.BallAtom)
   }
 }
