@@ -5,6 +5,7 @@ import { error } from 'node:console';
 import { HttpErrorResponse } from '@angular/common/http';
 import { List_Product } from '../../../contracts/list_product';
 import { Observable, firstValueFrom } from 'rxjs';
+import { List_Product_Image } from '../../../contracts/list_product_image';
 
 @Injectable({
   providedIn: 'root',
@@ -77,5 +78,14 @@ export class ProductService {
       );
 
     await firstValueFrom(deleteObservable);
+  }
+//promise api-daki task kimidir
+  async readImages(id: string): Promise<List_Product_Image[]>{
+    const getObservable: Observable<List_Product_Image[]> =  this.httpClientService.get<List_Product_Image[]>({
+      action:"getproductimages",
+      controller: "products"
+    },id);
+
+    return await firstValueFrom(getObservable);
   }
 }

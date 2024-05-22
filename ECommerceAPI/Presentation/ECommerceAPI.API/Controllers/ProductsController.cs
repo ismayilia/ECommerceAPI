@@ -4,6 +4,7 @@ using ECommerceAPI.Application.RequestParameters;
 using ECommerceAPI.Application.ViewModels.Products;
 using ECommerceAPI.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace ECommerceAPI.API.Controllers
 {
@@ -146,6 +147,19 @@ namespace ECommerceAPI.API.Controllers
 
 			return Ok();
 
+		}
+
+		[HttpGet("[action]/{id}")]
+		public async Task<IActionResult> GetProductImages(string id)
+		{
+			Product product =  await _productReadRepository.Table.Include(m=> m.ProductImageFiles)
+											  .FirstOrDefaultAsync(p=> p.Id == Guid.Parse(id));
+
+			return Ok(product.ProductImageFiles.Select(p=> new
+			{
+				p.Path,
+				p.FileName
+			}));
 		}
 
 

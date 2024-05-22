@@ -1,16 +1,16 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\files\\banner-2.jpg",
-      "PackagePath": "staticwebassets\\files\\banner-2.jpg"
+      "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\photo-image\\banner.jpg",
+      "PackagePath": "staticwebassets\\photo-image\\banner.jpg"
     },
     {
-      "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\files\\banner-3.jpg",
-      "PackagePath": "staticwebassets\\files\\banner-3.jpg"
+      "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\photo-image\\evade.jpg",
+      "PackagePath": "staticwebassets\\photo-image\\evade.jpg"
     },
     {
-      "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\files\\banner.jpg",
-      "PackagePath": "staticwebassets\\files\\banner.jpg"
+      "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\photo-image\\featured.jpg",
+      "PackagePath": "staticwebassets\\photo-image\\featured.jpg"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.ECommerceAPI.API.Microsoft.AspNetCore.StaticWebAssets.props",
