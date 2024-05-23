@@ -59,7 +59,7 @@ namespace ECommerceAPI.Infrastructure.Services.Storage.Azure
 			{
 				string fileNewName = await FileRenameAsync(containerName, file.Name, HasFile);
 				//upload edeceyimiz file gosteririk ve ya gotururuk 
-				BlobClient blobClient = _blobContainerClient.GetBlobClient(file.Name);
+				BlobClient blobClient = _blobContainerClient.GetBlobClient(fileNewName);
 				//iformfile tipinden olan butun fayllari "stream"-e cevire bilirik bunun ucun "openreadstream" methodudu!
 				await blobClient.UploadAsync(file.OpenReadStream());
 				datas.Add((fileNewName, $"{containerName}/{fileNewName}"));

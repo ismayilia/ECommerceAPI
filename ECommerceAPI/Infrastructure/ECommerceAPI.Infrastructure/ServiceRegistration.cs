@@ -18,12 +18,13 @@ namespace ECommerceAPI.Infrastructure
 
 		//gelenin referans tipi class olmnalidir ve istorage-den miras almalidir
 		// gelen class storage-den miral almali ve istorage-i implement etmeli
+
 		public static void AddStorage<T>(this IServiceCollection serviceCollection) where T : Storage, IStorage
 		{
 			serviceCollection.AddScoped<IStorage, T>();
 		}
 
-		public static void AddStorage<T>(this IServiceCollection serviceCollection, StorageType storageType)
+		public static void AddStorage(this IServiceCollection serviceCollection, StorageType storageType)
 		{
 			switch (storageType)
 			{

@@ -1,13 +1,10 @@
 using ECommerceAPI.Application.Validators.Products;
-using ECommerceAPI.Infrastructure.Filters;
-using ECommerceAPI.Persistence;
 using ECommerceAPI.Infrastructure;
-using ECommerceAPI.Persistence.Context;
-using FluentValidation.AspNetCore;
-using Microsoft.EntityFrameworkCore;
-using System;
-using ECommerceAPI.Infrastructure.Services.Storage.Local;
+using ECommerceAPI.Infrastructure.Filters;
 using ECommerceAPI.Infrastructure.Services.Storage.Azure;
+using ECommerceAPI.Infrastructure.Services.Storage.Local;
+using ECommerceAPI.Persistence;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddPersistenceServices();
 builder.Services.AddInfrastructureServices();
 //localstroage verildiyi ucun  o ishleyecek
-builder.Services.AddStorage<LocalStorage>();
+//builder.Services.AddStorage(StorageType.Azure);
+builder.Services.AddStorage<AzureStorage>();
 
 // browser cors-a icaze vermek (yungulleshdirmek)
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>

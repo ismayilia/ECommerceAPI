@@ -22,6 +22,7 @@ namespace ECommerceAPI.API.Controllers
 		readonly private IInvoiceFileReadRepository _invoiceFileReadRepository;
 		readonly private IInvoiceFileWriteRepository _invoiceFileWriteRepository;
 		readonly private IStorageService _storageService;
+		readonly IConfiguration configuration; //appsettinge catmaq ucun
 
 		public ProductsController(IProductWriteRepository productWriteRepository,
 									IProductReadRepository productReadRepository,
@@ -32,7 +33,8 @@ namespace ECommerceAPI.API.Controllers
 									IProductImageFileWriteRepository productImageFileWriteRepository,
 									IFileWriteRepository fileWriteRepository,
 									IFileReadRepository fileReadRepository,
-									IStorageService storageService)
+									IStorageService storageService,
+									IConfiguration configuration)
 		{
 			_productReadRepository = productReadRepository;
 			_productWriteRepository = productWriteRepository;
@@ -44,6 +46,7 @@ namespace ECommerceAPI.API.Controllers
 			_productImageFileReadRepository = productImageFileReadRepository;
 			_productImageFileWriteRepository = productImageFileWriteRepository;
 			_storageService = storageService;
+			this.configuration = configuration;
 		}
 
 		[HttpGet]
@@ -117,7 +120,7 @@ namespace ECommerceAPI.API.Controllers
 		{
 
 			List<(string fileName, string pathOrContainerName)> result
-			 = await _storageService.UploadAsync("photo-image", Request.Form.Files);
+			 = await _storageService.UploadAsync("photo-images", Request.Form.Files);
 
 			Product product = await _productReadRepository.GetByIdAsync(id);
 
@@ -155,12 +158,31 @@ namespace ECommerceAPI.API.Controllers
 			Product product =  await _productReadRepository.Table.Include(m=> m.ProductImageFiles)
 											  .FirstOrDefaultAsync(p=> p.Id == Guid.Parse(id));
 
-			return Ok(product.ProductImageFiles.Select(p=> new
+			//await Task.Delay(2000); //gozletme
+
+			return Ok(product.ProductImageFiles.Select(p=> new 
 			{
-				p.Path,
-				p.FileName
+				Path = $"{configuration["BaseStorageUrl"]}/{p.Path}",
+				p.FileName,
+				p.Id
 			}));
 		}
+
+		[HttpDelete("[action]/{id}")]
+
+		public async Task<IActionResult> DeleteProductImage(string id, string imageId)
+		{
+			Product product = await _productReadRepository.Table.Include(m => m.ProductImageFiles)
+											  .FirstOrDefaultAsync(p => p.Id == Guid.Parse(id));
+
+			ProductImageFile  productImageFile = product.ProductImageFiles.FirstOrDefault(p => p.Id == Guid.Parse(imageId));
+			product.ProductImageFiles.Remove(productImageFile);
+
+			await _productWriteRepository.SaveAsync();
+			return Ok();
+		}
+
+
 
 
 	}
