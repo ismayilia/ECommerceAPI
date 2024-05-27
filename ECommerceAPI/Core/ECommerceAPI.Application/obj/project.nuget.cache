@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "9xA4GoFXjILhUc4daSUie1c/+skSm2bxkL1FZ6iDSSedRU35MC4O2293EzKfOXdfI2JzsKXBnudmeOUn0p4ERg==",
+  "dgSpecHash": "SPa9oDqn69SJwpGBYcWuFe1EB9bcYccCmpvoOZRvOYhRAVjPY19YhmhOC5ZjLLiEUBGKrzZq44NFSQKkoHwbPg==",
   "success": true,
   "projectFilePath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\10.0.1\\mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.28\\microsoft.entityframeworkcore.6.0.28.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.28\\microsoft.entityframeworkcore.abstractions.6.0.28.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.28\\microsoft.entityframeworkcore.analyzers.6.0.28.nupkg.sha512",

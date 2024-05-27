@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "TrPikly/NqhR5dTI0FjWTD/z8hmUzu8FNC/TeLNKVOGO9wXjR3UKfCUVMRRwqkHNbUEYKIgQHaFvmndVn89UXg==",
+  "dgSpecHash": "ewT5XMptHYAuDTckM5qshhGnkNab0tVN66yUx22oLrTlesCugBXGMJA/Pw0Aid3K5OCuiOQ2u5MNKsqyaUMxQw==",
   "success": true,
   "projectFilePath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\ECommerceAPI.API.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,9 @@
     "C:\\Users\\HP\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\10.0.1\\mediatr.extensions.microsoft.dependencyinjection.10.0.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.7\\microsoft.data.sqlclient.2.1.7.nupkg.sha512",

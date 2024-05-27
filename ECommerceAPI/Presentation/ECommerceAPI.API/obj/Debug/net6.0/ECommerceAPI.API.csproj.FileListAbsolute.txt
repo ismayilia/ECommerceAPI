@@ -89,6 +89,9 @@ C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\Humanizer.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\MediatR.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\MediatR.Contracts.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\MediatR.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
