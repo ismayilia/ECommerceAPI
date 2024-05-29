@@ -49,10 +49,17 @@ const routes: Routes = [
         (module) => module.ProductsModule
       ),
   },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./ui/components/register/register.module').then(
+        (module) => module.RegisterModule
+      ),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
