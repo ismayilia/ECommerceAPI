@@ -17,7 +17,7 @@ export class DashboardComponent extends BaseComponent {
     super(spinner)
   }
   ngOnInit(): void {
-    this.showSpinner(SpinnerType.BallAtom)
+    // this.showSpinner(SpinnerType.BallAtom)
   }
 
   m() {

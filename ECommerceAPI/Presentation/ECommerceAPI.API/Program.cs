@@ -6,6 +6,8 @@ using ECommerceAPI.Infrastructure.Services.Storage.Azure;
 using ECommerceAPI.Infrastructure.Services.Storage.Local;
 using ECommerceAPI.Persistence;
 using FluentValidation.AspNetCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,6 +40,31 @@ builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//jwt package ---jwtbearerdefaults.authenticationScheme->default shema
+
+//bu app-e token uzerinden bir request gelirse bu tokeni dogrularken JWT oldugu bil ve dogrularken bu optionslar uzerinden
+//dogrula
+
+builder.Services.AddAuthentication("Admin").AddJwtBearer(options =>
+{
+	options.TokenValidationParameters = new()
+	{
+		ValidateAudience = true, // yaradicilaq token deyerini kimlerin/hansi originlerin/saytlarin istifade edeceyi deyerdir -> www.ak.com example
+		ValidateIssuer = true, // yaradicilaq token deyerini kimin verdiyini efadece edecek yerdir -> www.myapi.com example bizim api address
+		ValidateLifetime = true, // yaradilan token deyerinin vaxtini kontrol edecek olan dogrulamadir
+		ValidateIssuerSigningKey = true, // yaradilan token deyerinin app-imize aid bir deyer oldugunu ifade eden security ker verilenin dogrulamasidir
+
+		//yuxaridakilarin valid qarshiligi
+
+		ValidAudience = builder.Configuration["Token:Audince"],
+		ValidIssuer = builder.Configuration["Token:Issuer"],
+		IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"]))
+	
+	
+	
+	};
+});
 
 var app = builder.Build();
 
