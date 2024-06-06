@@ -1,9 +1,11 @@
 ﻿using ECommerceAPI.Application.Abstractions.Storage;
+using ECommerceAPI.Application.Abstractions.Token;
 using ECommerceAPI.Infrastructure.Enums;
 using ECommerceAPI.Infrastructure.Services;
 using ECommerceAPI.Infrastructure.Services.Storage;
 using ECommerceAPI.Infrastructure.Services.Storage.Azure;
 using ECommerceAPI.Infrastructure.Services.Storage.Local;
+using ECommerceAPI.Infrastructure.Services.Token;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ECommerceAPI.Infrastructure
@@ -14,6 +16,7 @@ namespace ECommerceAPI.Infrastructure
 		{
 
 			serviceCollection.AddScoped<IStorageService, StorageService>();
+			serviceCollection.AddScoped<ITokenHandler, TokenHandler>();
 		}
 
 		//gelenin referans tipi class olmnalidir ve istorage-den miras almalidir

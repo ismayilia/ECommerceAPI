@@ -8,19 +8,18 @@ using ECommerceAPI.Application.Features.Queries.Product.GetAllProduct;
 using ECommerceAPI.Application.Features.Queries.Product.GetByIdProduct;
 using ECommerceAPI.Application.Features.Queries.ProductImageFile.GetProductImages;
 using ECommerceAPI.Application.Repositories;
-using ECommerceAPI.Application.RequestParameters;
-using ECommerceAPI.Application.ViewModels.Products;
-using ECommerceAPI.Domain.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Net;
 
 namespace ECommerceAPI.API.Controllers
 {
-    [Route("api/[controller]")]
+
+	[Route("api/[controller]")]
 	[ApiController]
-	public class ProductsController : ControllerBase
+	[Authorize(AuthenticationSchemes = "Admin")]
+
+	public class ProductsController : ControllerBase	
 	{
 		readonly private IProductWriteRepository _productWriteRepository;
 		readonly private IProductReadRepository _productReadRepository;
