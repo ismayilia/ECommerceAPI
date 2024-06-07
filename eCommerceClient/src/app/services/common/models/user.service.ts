@@ -5,7 +5,7 @@ import { Create_User } from '../../../contracts/users/create_user';
 import { Observable, firstValueFrom } from 'rxjs';
 import { Token } from '../../../contracts/token/token';
 import { CustomToastrService, ToastrMessageType, ToastrPosition } from '../../ui/custom-toastr.service';
-import { TokenResponse } from '../../../contracts/token/tokenresponse';
+import { TokenResponse } from '../../../contracts/token/tokenResponse';
 
 @Injectable({
   providedIn: 'root'
