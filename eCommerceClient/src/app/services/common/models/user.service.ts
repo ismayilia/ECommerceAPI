@@ -30,7 +30,7 @@ export class UserService {
 
     const tokenResponse: TokenResponse = await firstValueFrom(observable) as TokenResponse;
     if (tokenResponse) {
-      localStorage.setItem("accessToken", tokenResponse.token.accessToken);
+      localStorage.setItem('accessToken', tokenResponse.token.accessToken);
 
       this.toastrService.message("Kullanici girisi basariyla saglanmistir!", "Giris basarili!", {
         messageType: ToastrMessageType.Success,

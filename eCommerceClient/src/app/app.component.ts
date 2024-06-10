@@ -5,6 +5,8 @@ import {
   ToastrMessageType,
   ToastrPosition,
 } from './services/ui/custom-toastr.service';
+import { AuthService } from './services/common/auth.service';
+import { Router } from '@angular/router';
 declare var $: any;
 
 @Component({
@@ -13,34 +15,17 @@ declare var $: any;
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'ECommerceClient';
-
-  ngOnInit(): void {
-    // $.get('https://localhost:7188/api/products', (data) => {
-    //   console.log(data);
-    // });
+  constructor(public authService: AuthService, private toastrService: CustomToastrService, private router: Router) {
+    authService.identityCheck();
   }
 
-  // constructor(private toastrService: CustomToastrService) {
-  //   toastrService.message('Hello', 'Suraj', {
-  //     messageType: ToastrMessageType.Info,
-  //     position: ToastrPosition.TopRight,
-  //     closeButton:true,
-  //   });
-  //   toastrService.message('Hello', 'Suraj', {
-  //     messageType: ToastrMessageType.Success,
-  //     position: ToastrPosition.TopLeft,
-  //     closeButton: true,
-  //   });
-  //   toastrService.message('Hello', 'Suraj', {
-  //     messageType: ToastrMessageType.Warning,
-  //     position: ToastrPosition.BottomCenter,
-  //     closeButton: true,
-  //   });
-  //   toastrService.message('Hello', 'Suraj', {
-  //     messageType: ToastrMessageType.Error,
-  //     position: ToastrPosition.BottomRight,
-  //     closeButton: true,
-  //   });
-  // }
+  signOut() {
+    localStorage.removeItem('accessToken');
+    this.authService.identityCheck();
+    this.router.navigate([""])
+    this.toastrService.message('You have been logged off', 'Logged off', {
+      messageType: ToastrMessageType.Warning,
+      position: ToastrPosition.TopRight,
+    });
+  }
 }
