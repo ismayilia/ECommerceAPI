@@ -19,7 +19,7 @@ namespace ECommerceAPI.Infrastructure.Services.Token
 			_configuration = configuration;
 		}
 
-		public Application.DTOs.Token CreateAccessToken(int minute)
+		public Application.DTOs.Token CreateAccessToken(int second)
 		{
 			Application.DTOs.Token token = new();
 
@@ -31,7 +31,7 @@ namespace ECommerceAPI.Infrastructure.Services.Token
 
 			// Yaradilacaq token settingini veririk
 			// tokenin omru-addminute 
-			token.Expiration = DateTime.UtcNow.AddMinutes(minute);
+			token.Expiration = DateTime.UtcNow.AddMinutes(second);
 			//yaradilacaq tokenin hansi deyerlerde olacaqin veririk
 			JwtSecurityToken securityToken = new(
 				audience : _configuration["Token:Audience"],

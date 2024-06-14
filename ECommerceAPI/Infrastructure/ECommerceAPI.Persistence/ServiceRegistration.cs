@@ -1,7 +1,10 @@
-﻿using ECommerceAPI.Application.Repositories;
+﻿using ECommerceAPI.Application.Abstractions.Services;
+using ECommerceAPI.Application.Abstractions.Services.Authentications;
+using ECommerceAPI.Application.Repositories;
 using ECommerceAPI.Domain.Entities.Identity;
 using ECommerceAPI.Persistence.Context;
 using ECommerceAPI.Persistence.Repositories;
+using ECommerceAPI.Persistence.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -38,6 +41,12 @@ namespace ECommerceAPI.Persistence
 			services.AddScoped<IProductImageFileWriteRepository, ProductImageFileWriteRepository>();
 			//services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
 			//services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
+
+			services.AddScoped<IUserSevice, UserService>();
+			services.AddScoped<IAuthService, AuthService>();
+			services.AddScoped<IExternalAuthentication, AuthService>();
+			services.AddScoped<IInternalAuthentication, AuthService>();
+				
 		}
 	}
 }
