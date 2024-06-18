@@ -8,6 +8,7 @@ using ECommerceAPI.Domain.Entities.Identity;
 using Google.Apis.Auth;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -26,18 +27,18 @@ namespace ECommerceAPI.Persistence.Services
 		readonly UserManager<AppUser> _userManager;
 		readonly ITokenHandler _tokenHandler;
 		readonly SignInManager<AppUser> _signInManager;
-		readonly IUserSevice _userSevice;
+		readonly IUserSevice _userService;
 
 		public AuthService(IHttpClientFactory httpClientFactory, IConfiguration configuration,
 						   UserManager<AppUser> userManager, ITokenHandler tokenHandler, 
-						   SignInManager<AppUser> signInManager, IUserSevice userSevice)
+						   SignInManager<AppUser> signInManager, IUserSevice userService)
 		{
 			_httpClient = httpClientFactory.CreateClient();
 			_configuration = configuration;
 			_userManager = userManager;
 			_tokenHandler = tokenHandler;
 			_signInManager = signInManager;
-			_userSevice = userSevice;
+			_userService = userService;
 		}
 
 		async Task<Token> CreateUserExternalAsync(AppUser user, string email, string name, 
@@ -69,7 +70,7 @@ namespace ECommerceAPI.Persistence.Services
 				await _userManager.AddLoginAsync(user, info); //AspNetUserLogins table add
 				Token token = _tokenHandler.CreateAccessToken(accessTokenLifeTime);
 
-				await _userSevice.UpdateRefreshToken(token.RefreshToken, user, token.Expiration, 5);
+				await _userService.UpdateRefreshToken(token.RefreshToken, user, token.Expiration, 15);
 
 				return token;
 			}
@@ -143,7 +144,7 @@ namespace ECommerceAPI.Persistence.Services
 			{
 				Token token = _tokenHandler.CreateAccessToken(accessTokenLifeTime);
 
-				await _userSevice.UpdateRefreshToken(token.RefreshToken, user, token.Expiration, 5);
+				await _userService.UpdateRefreshToken(token.RefreshToken, user, token.Expiration, 15);
 
 				return token;
 			}
@@ -153,6 +154,19 @@ namespace ECommerceAPI.Persistence.Services
 			//};
 
 			throw new AuthenticationErrorException();
+		}
+
+		public async Task<Token> RefreshTokenLoginAsync(string refreshToken)
+		{
+			AppUser user =  await _userManager.Users.FirstOrDefaultAsync(u => u.RefreshToken == refreshToken);
+			if (user != null && user.RefreshTokenEndDate > DateTime.Now)
+			{
+				Token token = _tokenHandler.CreateAccessToken(15);
+				await _userService.UpdateRefreshToken(token.RefreshToken, user, token.Expiration, 15);
+				return token;
+			}
+			else
+				throw new NotFoundUserException();
 		}
 	}
 }

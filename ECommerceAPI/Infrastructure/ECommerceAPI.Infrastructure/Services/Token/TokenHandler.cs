@@ -32,13 +32,13 @@ namespace ECommerceAPI.Infrastructure.Services.Token
 
 			// Yaradilacaq token settingini veririk
 			// tokenin omru-addminute 
-			token.Expiration = DateTime.UtcNow.AddSeconds(second);
+			token.Expiration = DateTime.Now.AddSeconds(second);
 			//yaradilacaq tokenin hansi deyerlerde olacaqin veririk
 			JwtSecurityToken securityToken = new(
 				audience : _configuration["Token:Audience"],
 				issuer : _configuration["Token:Issuer"],
 				expires : token.Expiration,
-				notBefore : DateTime.UtcNow, //token yaradilandan ne qeder sonra ishlesin -> .addminute(1) bunuda olar 
+				notBefore : DateTime.Now, //token yaradilandan ne qeder sonra ishlesin -> .addminute(1) bunuda olar 
 				signingCredentials : signingCredentials //security keye gore
 				);
 
