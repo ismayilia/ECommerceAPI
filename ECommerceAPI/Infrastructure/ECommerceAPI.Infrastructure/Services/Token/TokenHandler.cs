@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,7 +32,7 @@ namespace ECommerceAPI.Infrastructure.Services.Token
 
 			// Yaradilacaq token settingini veririk
 			// tokenin omru-addminute 
-			token.Expiration = DateTime.UtcNow.AddMinutes(second);
+			token.Expiration = DateTime.UtcNow.AddSeconds(second);
 			//yaradilacaq tokenin hansi deyerlerde olacaqin veririk
 			JwtSecurityToken securityToken = new(
 				audience : _configuration["Token:Audience"],
@@ -43,9 +44,20 @@ namespace ECommerceAPI.Infrastructure.Services.Token
 
 			// Token yaradici class-indan bir numune alaq
 
-			JwtSecurityTokenHandler tokenHandler = new();
+			JwtSecurityTokenHandler tokenHandler = new();	
 			token.AccessToken = tokenHandler.WriteToken(securityToken);
+
+			//string refreshToken = CreateRefreshToken();
+			token.RefreshToken = CreateRefreshToken();
 			return token;
+		}
+
+		public string CreateRefreshToken()
+		{
+			byte[] number = new byte[32];
+			using RandomNumberGenerator random = RandomNumberGenerator.Create();
+			random.GetBytes(number);
+			return Convert.ToBase64String(number);
 		}
 	}
 }

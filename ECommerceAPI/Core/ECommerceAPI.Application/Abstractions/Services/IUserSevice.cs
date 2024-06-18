@@ -1,14 +1,11 @@
 ﻿using ECommerceAPI.Application.DTOs.User;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ECommerceAPI.Domain.Entities.Identity;
 
 namespace ECommerceAPI.Application.Abstractions.Services
 {
 	public interface IUserSevice
 	{
 		Task<CreatUserResponse> CreatAsync(CreatUser model);
+		Task UpdateRefreshToken(string refreshToken, AppUser user, DateTime accessTokenDate, int addOnAccessToken);
 	}
 }

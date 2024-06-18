@@ -26,18 +26,22 @@ namespace ECommerceAPI.Persistence.Services
 		readonly UserManager<AppUser> _userManager;
 		readonly ITokenHandler _tokenHandler;
 		readonly SignInManager<AppUser> _signInManager;
+		readonly IUserSevice _userSevice;
 
 		public AuthService(IHttpClientFactory httpClientFactory, IConfiguration configuration,
-						   UserManager<AppUser> userManager, ITokenHandler tokenHandler, SignInManager<AppUser> signInManager)
+						   UserManager<AppUser> userManager, ITokenHandler tokenHandler, 
+						   SignInManager<AppUser> signInManager, IUserSevice userSevice)
 		{
 			_httpClient = httpClientFactory.CreateClient();
 			_configuration = configuration;
 			_userManager = userManager;
 			_tokenHandler = tokenHandler;
 			_signInManager = signInManager;
+			_userSevice = userSevice;
 		}
 
-		async Task<Token> CreateUserExternalAsync(AppUser user, string email, string name, UserLoginInfo info, int accessTokenLifeTime)
+		async Task<Token> CreateUserExternalAsync(AppUser user, string email, string name, 
+												  UserLoginInfo info, int accessTokenLifeTime)
 		{
 			bool result = user != null;
 
@@ -64,6 +68,8 @@ namespace ECommerceAPI.Persistence.Services
 			{
 				await _userManager.AddLoginAsync(user, info); //AspNetUserLogins table add
 				Token token = _tokenHandler.CreateAccessToken(accessTokenLifeTime);
+
+				await _userSevice.UpdateRefreshToken(token.RefreshToken, user, token.Expiration, 5);
 
 				return token;
 			}
@@ -136,6 +142,8 @@ namespace ECommerceAPI.Persistence.Services
 			if (result.Succeeded) // Authentication success!
 			{
 				Token token = _tokenHandler.CreateAccessToken(accessTokenLifeTime);
+
+				await _userSevice.UpdateRefreshToken(token.RefreshToken, user, token.Expiration, 5);
 
 				return token;
 			}
