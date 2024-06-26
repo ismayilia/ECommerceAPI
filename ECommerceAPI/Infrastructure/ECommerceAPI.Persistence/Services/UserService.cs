@@ -59,8 +59,6 @@ namespace ECommerceAPI.Persistence.Services
 			else
 				throw new NotFoundUserException();
 
-
-
 		}
 	}
 }

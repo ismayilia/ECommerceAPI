@@ -30,7 +30,7 @@ namespace ECommerceAPI.Persistence.Services
 		readonly IUserSevice _userService;
 
 		public AuthService(IHttpClientFactory httpClientFactory, IConfiguration configuration,
-						   UserManager<AppUser> userManager, ITokenHandler tokenHandler, 
+						   UserManager<AppUser> userManager, ITokenHandler tokenHandler,
 						   SignInManager<AppUser> signInManager, IUserSevice userService)
 		{
 			_httpClient = httpClientFactory.CreateClient();
@@ -41,7 +41,7 @@ namespace ECommerceAPI.Persistence.Services
 			_userService = userService;
 		}
 
-		async Task<Token> CreateUserExternalAsync(AppUser user, string email, string name, 
+		async Task<Token> CreateUserExternalAsync(AppUser user, string email, string name,
 												  UserLoginInfo info, int accessTokenLifeTime)
 		{
 			bool result = user != null;
@@ -68,7 +68,7 @@ namespace ECommerceAPI.Persistence.Services
 			if (result)
 			{
 				await _userManager.AddLoginAsync(user, info); //AspNetUserLogins table add
-				Token token = _tokenHandler.CreateAccessToken(accessTokenLifeTime);
+				Token token = _tokenHandler.CreateAccessToken(accessTokenLifeTime, user);
 
 				await _userService.UpdateRefreshToken(token.RefreshToken, user, token.Expiration, 15);
 
@@ -103,7 +103,7 @@ namespace ECommerceAPI.Persistence.Services
 
 				Domain.Entities.Identity.AppUser user = await _userManager.FindByLoginAsync(info.LoginProvider, info.ProviderKey);
 
-				return await CreateUserExternalAsync(user, userInfo.Email,userInfo.Name, info, accessTokenLifeTime);
+				return await CreateUserExternalAsync(user, userInfo.Email, userInfo.Name, info, accessTokenLifeTime);
 
 			}
 			throw new Exception("Invalid  external authentication.");
@@ -142,7 +142,7 @@ namespace ECommerceAPI.Persistence.Services
 
 			if (result.Succeeded) // Authentication success!
 			{
-				Token token = _tokenHandler.CreateAccessToken(accessTokenLifeTime);
+				Token token = _tokenHandler.CreateAccessToken(accessTokenLifeTime, user);
 
 				await _userService.UpdateRefreshToken(token.RefreshToken, user, token.Expiration, 15);
 
@@ -158,10 +158,10 @@ namespace ECommerceAPI.Persistence.Services
 
 		public async Task<Token> RefreshTokenLoginAsync(string refreshToken)
 		{
-			AppUser user =  await _userManager.Users.FirstOrDefaultAsync(u => u.RefreshToken == refreshToken);
+			AppUser user = await _userManager.Users.FirstOrDefaultAsync(u => u.RefreshToken == refreshToken);
 			if (user != null && user.RefreshTokenEndDate > DateTime.Now)
 			{
-				Token token = _tokenHandler.CreateAccessToken(15);
+				Token token = _tokenHandler.CreateAccessToken(15, user);
 				await _userService.UpdateRefreshToken(token.RefreshToken, user, token.Expiration, 15);
 				return token;
 			}

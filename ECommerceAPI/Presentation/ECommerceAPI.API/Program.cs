@@ -1,14 +1,20 @@
+ï»¿using ECommerceAPI.API.Configurations.ColumnWriters;
 using ECommerceAPI.Application;
 using ECommerceAPI.Application.Validators.Products;
 using ECommerceAPI.Infrastructure;
 using ECommerceAPI.Infrastructure.Filters;
 using ECommerceAPI.Infrastructure.Services.Storage.Azure;
-using ECommerceAPI.Infrastructure.Services.Storage.Local;
 using ECommerceAPI.Persistence;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Serilog;
+using Serilog.Context;
+using Serilog.Core;
+using Serilog.Sinks.MSSqlServer;
+using System.Collections.ObjectModel;
 using System.Security.Claims;
 using System.Text;
 
@@ -27,6 +33,58 @@ builder.Services.AddStorage<AzureStorage>();
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
 	policy.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowAnyMethod()
 ));
+
+//Serilog configurations
+
+//Logger log = new LoggerConfiguration()
+//	.WriteTo.Console()
+//	.WriteTo.File("logs/log.txt")
+//	.WriteTo.MSSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), sinkOptions: new MSSqlServerSinkOptions { TableName = "Log", AutoCreateSqlTable = true }
+//	, null, null, LogEventLevel.Warning, null, null, null, null)
+//	.CreateLogger();
+//builder.Host.UseSerilog(log);
+
+SqlColumn sqlColumn = new SqlColumn();
+sqlColumn.ColumnName = "UserName";
+sqlColumn.DataType = System.Data.SqlDbType.NVarChar;
+sqlColumn.PropertyName = "UserName";
+sqlColumn.DataLength = 50;
+sqlColumn.AllowNull = true;
+ColumnOptions columnOpt = new ColumnOptions();
+columnOpt.Store.Remove(StandardColumn.Properties);
+columnOpt.Store.Add(StandardColumn.LogEvent);
+columnOpt.AdditionalColumns = new Collection<SqlColumn> { sqlColumn };
+
+Logger log = new LoggerConfiguration()
+	.WriteTo.Console()
+	.WriteTo.File("logs/log.txt")
+	.WriteTo.MSSqlServer(
+	connectionString: builder.Configuration.GetConnectionString("DefaultConnection"),
+	 sinkOptions: new MSSqlServerSinkOptions
+	 {
+		 AutoCreateSqlTable = true,
+		 TableName = "logs",
+	 },
+	 appConfiguration: null,
+	 columnOptions: columnOpt
+	)
+	.Enrich.FromLogContext()
+	.Enrich.With<CustomUserNameColumn>()
+	.MinimumLevel.Information()
+	.WriteTo.Seq(builder.Configuration["Seq:ServerURL"])
+	.CreateLogger();
+builder.Host.UseSerilog(log);
+
+builder.Services.AddHttpLogging(logging =>
+{
+	logging.LoggingFields = HttpLoggingFields.All;
+	logging.RequestHeaders.Add("sec-ch-ua");
+	logging.MediaTypeOptions.AddText("application/javascript");
+	logging.RequestBodyLogLimit = 4096;
+	logging.ResponseBodyLogLimit = 4096;
+});
+
+
 
 
 //addcontrollersin icinde olanlar validationfilteri ucundur
@@ -81,17 +139,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 	{
 		options.TokenValidationParameters = new()
 		{
-			ValidateAudience = true, //Oluþturulacak token deðerini kimlerin/hangi originlerin/sitelerin kullanýcý belirlediðimiz deðerdir. -> www.bilmemne.com
-			ValidateIssuer = true, //Oluþturulacak token deðerini kimin daðýttýný ifade edeceðimiz alandýr. -> www.myapi.com
-			ValidateLifetime = true, //Oluþturulan token deðerinin süresini kontrol edecek olan doðrulamadýr.
-			ValidateIssuerSigningKey = true, //Üretilecek token deðerinin uygulamamýza ait bir deðer olduðunu ifade eden suciry key verisinin doðrulanmasýdýr.
+			ValidateAudience = true, //OluÃ¾turulacak token deÃ°erini kimlerin/hangi originlerin/sitelerin kullanÃ½cÃ½ belirlediÃ°imiz deÃ°erdir. -> www.bilmemne.com
+			ValidateIssuer = true, //OluÃ¾turulacak token deÃ°erini kimin daÃ°Ã½ttÃ½nÃ½ ifade edeceÃ°imiz alandÃ½r. -> www.myapi.com
+			ValidateLifetime = true, //OluÃ¾turulan token deÃ°erinin sÃ¼resini kontrol edecek olan doÃ°rulamadÃ½r.
+			ValidateIssuerSigningKey = true, //Ãœretilecek token deÃ°erinin uygulamamÃ½za ait bir deÃ°er olduÃ°unu ifade eden suciry key verisinin doÃ°rulanmasÃ½dÃ½r.
 
 			ValidAudience = builder.Configuration["Token:Audience"],
 			ValidIssuer = builder.Configuration["Token:Issuer"],
 			IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Token:SecurityKey"])),
 			LifetimeValidator = (notBefore, expires, securityToken, validationParameters) => expires != null ? expires > DateTime.UtcNow : false,
 
-			NameClaimType = ClaimTypes.Name //JWT üzerinde Name claimne karþýlýk gelen deðeri User.Identity.Name propertysinden elde edebiliriz.
+			NameClaimType = ClaimTypes.Name //JWT Ã¼zerinde Name claimne karsilik gelen deÃ°eri User.Identity.Name propertysinden elde edebiliriz.
 		};
 	});
 
@@ -106,6 +164,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseStaticFiles();
 
+app.UseSerilogRequestLogging();
+
+app.UseHttpLogging();
 //cors middleware-ni cagirmaq
 app.UseCors();
 
@@ -113,6 +174,13 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.Use(async (context, next) =>
+{
+	var userName = context.User?.Identity?.IsAuthenticated != null || true ? context.User.Identity.Name : null;
+	LogContext.PushProperty("UserName", userName);
+	await next();
+});
 
 app.MapControllers();
 
