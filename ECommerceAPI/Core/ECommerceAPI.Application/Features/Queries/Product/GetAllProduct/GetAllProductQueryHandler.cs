@@ -24,6 +24,7 @@ namespace ECommerceAPI.Application.Features.Queries.Product.GetAllProduct
                                                        CancellationToken cancellationToken)
         {
             _logger.LogInformation("Get all products...");
+            //throw new Exception("Find Error....");
             var totalCount = _productReadRepository.GetAll(false).Count();
 
             var products = _productReadRepository.GetAll(false).Skip(request.Page * request.Size)
