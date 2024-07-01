@@ -3742,6 +3742,22 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "ECommerce.API.SignalR/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "ECommerceAPI.Application": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ECommerce.API.SignalR.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ECommerce.API.SignalR.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "ECommerceAPI.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -10622,6 +10638,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "ECommerce.API.SignalR/1.0.0": {
+      "type": "project",
+      "path": "../../Infrastructure/ECommerce.API.SignalR/ECommerce.API.SignalR.csproj",
+      "msbuildProject": "../../Infrastructure/ECommerce.API.SignalR/ECommerce.API.SignalR.csproj"
+    },
     "ECommerceAPI.Application/1.0.0": {
       "type": "project",
       "path": "../../Core/ECommerceAPI.Application/ECommerceAPI.Application.csproj",
@@ -10645,6 +10666,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "ECommerce.API.SignalR >= 1.0.0",
       "ECommerceAPI.Application >= 1.0.0",
       "ECommerceAPI.Infrastructure >= 1.0.0",
       "ECommerceAPI.Persistence >= 1.0.0",
@@ -10686,6 +10708,9 @@
           "projectReferences": {
             "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj": {
               "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Core\\ECommerceAPI.Application\\ECommerceAPI.Application.csproj"
+            },
+            "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerce.API.SignalR\\ECommerce.API.SignalR.csproj": {
+              "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerce.API.SignalR\\ECommerce.API.SignalR.csproj"
             },
             "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj": {
               "projectPath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj"

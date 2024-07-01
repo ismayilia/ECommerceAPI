@@ -196,3 +196,5 @@ C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\obj\
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\obj\Debug\net6.0\ref\ECommerceAPI.API.dll
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\Serilog.Sinks.Seq.dll
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\System.Threading.Channels.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\ECommerce.API.SignalR.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\ECommerce.API.SignalR.pdb

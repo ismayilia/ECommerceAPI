@@ -1,0 +1,17 @@
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\bin\Debug\net6.0\ECommerce.API.SignalR.deps.json
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\bin\Debug\net6.0\ECommerce.API.SignalR.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\bin\Debug\net6.0\ECommerce.API.SignalR.pdb
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\bin\Debug\net6.0\ECommerceAPI.Application.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\bin\Debug\net6.0\ECommerceAPI.Domain.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\bin\Debug\net6.0\ECommerceAPI.Application.pdb
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\bin\Debug\net6.0\ECommerceAPI.Domain.pdb
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ECommerce.API.SignalR.csproj.AssemblyReference.cache
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ECommerce.API.SignalR.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ECommerce.API.SignalR.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ECommerce.API.SignalR.AssemblyInfo.cs
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ECommerce.API.SignalR.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ECommerce.API.SignalR.csproj.CopyComplete
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ECommerce.API.SignalR.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\refint\ECommerce.API.SignalR.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ECommerce.API.SignalR.pdb
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ref\ECommerce.API.SignalR.dll

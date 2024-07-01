@@ -1,4 +1,6 @@
-﻿using ECommerceAPI.API.Configurations.ColumnWriters;
+﻿using ECommerce.API.SignalR;
+using ECommerce.API.SignalR.Hubs;
+using ECommerceAPI.API.Configurations.ColumnWriters;
 using ECommerceAPI.API.Extensions;
 using ECommerceAPI.Application;
 using ECommerceAPI.Application.Validators.Products;
@@ -26,13 +28,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddPersistenceServices();
 builder.Services.AddInfrastructureServices();
 builder.Services.AddAplicationServices();
+builder.Services.AddSignalRServices();
 //localstroage verildiyi ucun  o ishleyecek
 //builder.Services.AddStorage(StorageType.Azure);
 builder.Services.AddStorage<AzureStorage>();
 
 // browser cors-a icaze vermek (yungulleshdirmek)
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
-	policy.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowAnyMethod()
+	policy.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials()
 ));
 
 //Serilog configurations
@@ -188,5 +191,7 @@ app.Use(async (context, next) =>
 });
 
 app.MapControllers();
+
+app.MapHubs();
 
 app.Run();
