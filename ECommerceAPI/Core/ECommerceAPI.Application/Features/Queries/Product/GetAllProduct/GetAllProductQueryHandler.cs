@@ -25,7 +25,8 @@ namespace ECommerceAPI.Application.Features.Queries.Product.GetAllProduct
         {
             _logger.LogInformation("Get all products...");
             //throw new Exception("Find Error....");
-            var totalCount = _productReadRepository.GetAll(false).Count();
+
+            var totalProductCount = _productReadRepository.GetAll(false).Count();
 
             var products = _productReadRepository.GetAll(false).Skip(request.Page * request.Size)
                                                                .Take(request.Size).Select(p => new
@@ -41,8 +42,8 @@ namespace ECommerceAPI.Application.Features.Queries.Product.GetAllProduct
             return new()
             {
                 Products = products,
-                TotalCount = totalCount
-            };
+                TotalProductCount = totalProductCount
+			};
         }
     }
 }

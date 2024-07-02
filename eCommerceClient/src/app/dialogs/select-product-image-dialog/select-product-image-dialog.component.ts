@@ -62,6 +62,10 @@ export class SelectProductImageDialogComponent extends BaseDialog<SelectProductI
       }
     })
   }
+
+  showCase(imageId: string) {
+    
+  }
 }
 
 export enum SelectProductImageState {
