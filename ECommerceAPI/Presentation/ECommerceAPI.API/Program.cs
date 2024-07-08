@@ -24,7 +24,8 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 
-
+builder.Services.AddHttpContextAccessor(); // Client-dan gelen request neticesinde emele gelen HttpContext objectine layerlerdeki class-lar
+//uzerinden (busineess logic) elcatanligi teshkil eden servisdir
 builder.Services.AddPersistenceServices();
 builder.Services.AddInfrastructureServices();
 builder.Services.AddAplicationServices();

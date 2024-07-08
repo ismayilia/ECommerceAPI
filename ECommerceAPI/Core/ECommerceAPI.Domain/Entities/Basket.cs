@@ -1,4 +1,5 @@
 ﻿using ECommerceAPI.Domain.Entities.Common;
+using ECommerceAPI.Domain.Entities.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ECommerceAPI.Domain.Entities
 {
-	public class OrderProduct : BaseEntity
+	public class Basket : BaseEntity
 	{
-        public Guid OrderId { get; set; }
+        public string UserId { get; set; }
+        public AppUser User { get; set; }
         public Order Order { get; set; }
-        public Guid ProductId { get; set; }
-        public Product Product { get; set; }
+        public ICollection<BasketItem> BasketItems { get; set; }
     }
 }
