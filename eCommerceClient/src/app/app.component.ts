@@ -7,6 +7,7 @@ import {
 } from './services/ui/custom-toastr.service';
 import { AuthService } from './services/common/auth.service';
 import { Router } from '@angular/router';
+import { HttpClientService } from './services/common/http-client.service';
 declare var $: any;
 
 @Component({
@@ -15,7 +16,23 @@ declare var $: any;
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  constructor(public authService: AuthService, private toastrService: CustomToastrService, private router: Router) {
+  constructor(public authService: AuthService, private toastrService: CustomToastrService, private router: Router,
+    private httpClientService: HttpClientService
+  ) {
+
+    // httpClientService.put({
+    //   controller: "baskets"
+    // }, {
+    //   basketItemId:"dd766881-1d87-4e33-293e-08dca022ee31",
+    //   quantity: 30
+    // }).subscribe(data => {
+    //   debugger
+    // });
+
+
+
+
+
     authService.identityCheck();
   }
 

@@ -3,7 +3,9 @@ using ECommerceAPI.Application.Features.Commands.AppUser.GoogleLogin;
 using ECommerceAPI.Application.Features.Commands.AppUser.LoginUser;
 using ECommerceAPI.Application.Features.Commands.AppUser.RefreshTokenLogin;
 using MediatR;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace ECommerceAPI.API.Controllers
 {
@@ -17,7 +19,7 @@ namespace ECommerceAPI.API.Controllers
 		{
 			_mediator = mediator;
 		}
-
+		
 		[HttpPost("[action]")]
 		public async Task<IActionResult> Login(LoginUserCommandRequest loginUserCommandRequest)
 		{

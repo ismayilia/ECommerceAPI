@@ -5,17 +5,27 @@ import { ActivatedRoute } from '@angular/router';
 import { match } from 'assert';
 import { FileService } from '../../../../services/common/models/file.service';
 import { BaseUrl } from '../../../../contracts/base_url';
+import { BasketService } from '../../../../services/common/models/basket.service';
+import { BaseComponent, SpinnerType } from '../../../../base/base.component';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { Create_Basket_Item } from '../../../../contracts/basket/create_basket_item';
+import { CustomToastrService, ToastrMessageType, ToastrPosition } from '../../../../services/ui/custom-toastr.service';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
-export class ListComponent implements OnInit {
+export class ListComponent extends BaseComponent implements OnInit {
   constructor(private productService: ProductService,
     private activateRoute: ActivatedRoute,
-    private fileService: FileService
-  ) { }
+    private fileService: FileService,
+    private basketService: BasketService,
+    spinner: NgxSpinnerService,
+    private customToastrService: CustomToastrService
+  ) {
+    super(spinner);
+  }
 
   currentPageNo: number;
   totalProductCount: number;
@@ -27,7 +37,7 @@ export class ListComponent implements OnInit {
   products: List_Product[];
 
   async ngOnInit() {
-this.baseUrl = await this.fileService.getBaseStorageUrl();
+    this.baseUrl = await this.fileService.getBaseStorageUrl();
 
     this.activateRoute.params.subscribe(async params => {
       this.currentPageNo = parseInt(params['pageNo'] ?? 1)
@@ -40,7 +50,7 @@ this.baseUrl = await this.fileService.getBaseStorageUrl();
           },
           errorMessage => {
 
-          }) 
+          })
 
       this.products = data.products;
 
@@ -80,6 +90,19 @@ this.baseUrl = await this.fileService.getBaseStorageUrl();
 
     })
 
+  }
+
+  async addToBasket(product: List_Product) {
+    this.showSpinner(SpinnerType.BallAtom);
+    let _basketItem: Create_Basket_Item = new Create_Basket_Item();
+    _basketItem.productId = product.id;
+    _basketItem.quantity = 1;
+    await this.basketService.add(_basketItem);
+    this.hideSpinner(SpinnerType.BallAtom);
+    this.customToastrService.message("Product added to basket!", "Added Basket", {
+      messageType: ToastrMessageType.Success,
+      position: ToastrPosition.TopRight
+    })
   }
 
 

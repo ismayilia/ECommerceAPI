@@ -1,5 +1,4 @@
 ﻿using ECommerce.API.SignalR;
-using ECommerce.API.SignalR.Hubs;
 using ECommerceAPI.API.Configurations.ColumnWriters;
 using ECommerceAPI.API.Extensions;
 using ECommerceAPI.Application;
@@ -7,6 +6,7 @@ using ECommerceAPI.Application.Validators.Products;
 using ECommerceAPI.Infrastructure;
 using ECommerceAPI.Infrastructure.Filters;
 using ECommerceAPI.Infrastructure.Services.Storage.Azure;
+using ECommerceAPI.Infrastructure.Services.Storage.Local;
 using ECommerceAPI.Persistence;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -32,7 +32,7 @@ builder.Services.AddAplicationServices();
 builder.Services.AddSignalRServices();
 //localstroage verildiyi ucun  o ishleyecek
 //builder.Services.AddStorage(StorageType.Azure);
-builder.Services.AddStorage<AzureStorage>();
+builder.Services.AddStorage<LocalStorage>();
 
 // browser cors-a icaze vermek (yungulleshdirmek)
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>

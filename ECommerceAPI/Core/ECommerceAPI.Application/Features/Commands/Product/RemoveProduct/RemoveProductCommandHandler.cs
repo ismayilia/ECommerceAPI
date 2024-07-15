@@ -20,7 +20,7 @@ namespace ECommerceAPI.Application.Features.Commands.Product.RemoveProduct
 
 		public async Task<RemoveProductCommandResponse> Handle(RemoveProductCommandRequest request, CancellationToken cancellationToken)
 		{
-			await _productWriteRepository.RemoveAsync(request.Id);
+			await _productWriteRepository.RemoveAsync(request.BasketItemId);
 			await _productWriteRepository.SaveAsync();
 			return new();
 		}

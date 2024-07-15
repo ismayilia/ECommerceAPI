@@ -3,13 +3,18 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, of } from 'rxjs';
 import { CustomToastrService, ToastrMessageType, ToastrPosition } from '../ui/custom-toastr.service';
 import { UserAuthService } from './models/user-auth.service';
+import { Router, UrlHandlingStrategy } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { SpinnerType } from '../../base/base.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpErrorHandlerInterceptorService implements HttpInterceptor {
 
-  constructor(private toastrService: CustomToastrService, private userAuthService: UserAuthService) { }
+  constructor(private toastrService: CustomToastrService, private userAuthService: UserAuthService,
+    private router: Router, private spinner: NgxSpinnerService
+  ) { }
 
   //req parametr--araya girme... next--parametr ise sonraki proses, devamin getirme, delegate-dir
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -17,15 +22,25 @@ export class HttpErrorHandlerInterceptorService implements HttpInterceptor {
       switch (error.status) {
 
         case HttpStatusCode.Unauthorized:
-          this.toastrService.message(
-            'You do not have permition for this action-401.',
-            'Unathorized Action!',
-            {
-              messageType: ToastrMessageType.Warning,
-              position: ToastrPosition.TopLeft,
-            });
 
-          this.userAuthService.refreshTokenLogin(localStorage.getItem('refreshToken')).then(data => {
+          this.userAuthService.refreshTokenLogin(localStorage.getItem('refreshToken'), (state) => {
+            if (!state) {
+              const url = this.router.url;
+              if (url == "/products") {
+                this.toastrService.message("If you want add to product, please login site!", "Login site", {
+                  messageType: ToastrMessageType.Warning,
+                  position: ToastrPosition.TopRight
+                })
+              } else
+                this.toastrService.message(
+                  'You do not have permition for this action-401.',
+                  'Unathorized Action!',
+                  {
+                    messageType: ToastrMessageType.Warning,
+                    position: ToastrPosition.TopLeft,
+                  });
+            }
+          }).then(data => {
 
           });
 
@@ -70,11 +85,9 @@ export class HttpErrorHandlerInterceptorService implements HttpInterceptor {
             }
           );
           break;
-
-
-
       }
 
+      this.spinner.hide(SpinnerType.BallAtom);
       return of(error);
     }))
   }

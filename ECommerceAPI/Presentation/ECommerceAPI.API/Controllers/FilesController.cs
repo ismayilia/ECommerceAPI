@@ -20,6 +20,7 @@ namespace ECommerceAPI.API.Controllers
 			return Ok(new
 			{
 				Url = _configuration["BaseStorageUrl"]
+
 			});
 		}
 
