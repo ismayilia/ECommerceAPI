@@ -1,4 +1,5 @@
 ﻿using ECommerceAPI.Application.Features.Commands.Basket.AddItemToBasket;
+using ECommerceAPI.Application.Features.Commands.Basket.RomoveBasketItem;
 using ECommerceAPI.Application.Features.Commands.Basket.UpdateQuantity;
 using ECommerceAPI.Application.Features.Commands.Product.RemoveProduct;
 using ECommerceAPI.Application.Features.Queries.Basket.GetBasketItems;
@@ -43,9 +44,10 @@ namespace ECommerceAPI.API.Controllers
 		}
 
 		[HttpDelete("{BasketItemId}")]
-		public async Task<IActionResult> RemoveBasketItem([FromRoute] RemoveProductCommandRequest removeProductCommandRequest)
+
+		public async Task<IActionResult> RemoveBasketItem([FromRoute] RemoveBasketItemCommandRequest removeBasketItemCommandRequest)
 		{
-			RemoveProductCommandResponse response = await _mediator.Send(removeProductCommandRequest);
+			RemoveBasketItemCommandResponse response = await _mediator.Send(removeBasketItemCommandRequest);
 			return Ok(response);
 		}
 	}

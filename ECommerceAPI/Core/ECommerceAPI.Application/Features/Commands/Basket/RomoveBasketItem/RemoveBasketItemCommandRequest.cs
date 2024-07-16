@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ECommerceAPI.Application.Features.Commands.Basket.RomoveBasketItem
 {
-	public class RemoveBasketItemCommandRequest : IRequest<RomoveBasketItemCommandResponse>
+	public class RemoveBasketItemCommandRequest : IRequest<RemoveBasketItemCommandResponse>
 	{
         public string BasketItemId { get; set; }
     }
