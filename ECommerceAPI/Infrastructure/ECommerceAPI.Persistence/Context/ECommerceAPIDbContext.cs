@@ -32,6 +32,10 @@ namespace ECommerceAPI.Persistence.Context
 			builder.Entity<Order>()
 				.HasKey(b => b.Id);
 
+			builder.Entity<Order>()
+				.HasIndex(o => o.OrderCode)
+				.IsUnique();
+
 			//one-to-one relation 
 			builder.Entity<Basket>()
 				.HasOne(b => b.Order)

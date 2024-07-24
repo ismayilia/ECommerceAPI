@@ -238,10 +238,17 @@ namespace ECommerceAPI.Persistence.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("OrderCode")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OrderCode")
+                        .IsUnique()
+                        .HasFilter("[OrderCode] IS NOT NULL");
 
                     b.ToTable("Orders");
                 });
