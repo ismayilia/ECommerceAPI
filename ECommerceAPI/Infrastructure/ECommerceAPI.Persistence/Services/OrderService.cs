@@ -36,24 +36,30 @@ namespace ECommerceAPI.Persistence.Services
 			await _orderWriteRepository.SaveAsync();
 		}
 
-		public async Task<List<ListOrder>> GetAllOrdersAsync(int page, int size)
+		public async Task<ListOrder> GetAllOrdersAsync(int page, int size)
 		{
-			var query =  _orderReadRepository.Table.Include(o => o.Basket).ThenInclude(b => b.User)
+			var query = _orderReadRepository.Table.Include(o => o.Basket).ThenInclude(b => b.User)
 				.Include(o => o.Basket)
 				.ThenInclude(b => b.BasketItems)
-				.ThenInclude(b => b.Product)
-				.Select(o => new ListOrder
+				.ThenInclude(b => b.Product);
+
+			var data = query.Skip(page * size).Take(size);
+			//.Take((page * size)..size)
+
+			return new()
+			{
+				TotalOrderCount = await query.CountAsync(),
+				Orders = await data.Select(o => new
 				{
 					CreatedDate = o.CreatedDate,
 					OrderCode = o.OrderCode,
 					TotalPrice = o.Basket.BasketItems.Sum(bi => bi.Product.Price * bi.Quantity),
 					UserName = o.Basket.User.UserName
-				})
-			.Skip(page * size).Take(size);
-			//.Take((page * size)..size)
-
-			return await query.ToListAsync();
+				}).ToListAsync()
+			};
 		}
 
 	}
 }
+
+

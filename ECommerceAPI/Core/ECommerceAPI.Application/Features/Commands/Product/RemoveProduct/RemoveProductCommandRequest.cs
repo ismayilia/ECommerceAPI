@@ -9,6 +9,7 @@ namespace ECommerceAPI.Application.Features.Commands.Product.RemoveProduct
 {
 	public class RemoveProductCommandRequest : IRequest<RemoveProductCommandResponse>
 	{
-		public string BasketItemId { get; set; }
+		public string Id { get; set; }
+
 	}
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ECommerceAPI.Application.Features.Queries.Order.GetAllOrder
 {
-	public class GetAllOrdersQueryHandler : IRequestHandler<GetAllOrdersQueryRequest, List<GetAllOrdersQueryResponse>>
+	public class GetAllOrdersQueryHandler : IRequestHandler<GetAllOrdersQueryRequest, GetAllOrdersQueryResponse>
 	{
 		readonly IOrderService _orderService;
 
@@ -17,16 +17,23 @@ namespace ECommerceAPI.Application.Features.Queries.Order.GetAllOrder
 			_orderService = orderService;
 		}
 
-		public async Task<List<GetAllOrdersQueryResponse>> Handle(GetAllOrdersQueryRequest request, CancellationToken cancellationToken)
+		public async Task<GetAllOrdersQueryResponse> Handle(GetAllOrdersQueryRequest request, CancellationToken cancellationToken)
 		{
 			var data = await _orderService.GetAllOrdersAsync(request.Page, request.Size);
-			return data.Select(o => new GetAllOrdersQueryResponse
+
+			return new()
 			{
-				CreatedDate = o.CreatedDate,
-				OrderCode = o.OrderCode,
-				TotalPrice = o.TotalPrice,
-				UserName = o.UserName
-			}).ToList();
+				TotalOrderCount = data.TotalOrderCount,
+				Orders = data.Orders
+			};
+
+			//return data.Select(o => new GetAllOrdersQueryResponse
+			//{
+			//	CreatedDate = o.CreatedDate,
+			//	OrderCode = o.OrderCode,
+			//	TotalPrice = o.TotalPrice,
+			//	UserName = o.UserName
+			//}).ToList();
 		}
 	}
 }

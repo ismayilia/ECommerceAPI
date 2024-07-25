@@ -11,7 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
-import { FileUploadModule } from '../../../services/common/file-upload/file-upload.module';
+import { DeleteDirectiveModule } from '../../../directives/admin/delete.directive.module';
 
 @NgModule({
   declarations: [OrdersComponent, ListComponent],
@@ -25,8 +25,8 @@ import { FileUploadModule } from '../../../services/common/file-upload/file-uplo
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
-    FileUploadModule,
-    DialogModule
+    DialogModule,
+    DeleteDirectiveModule
   ],
   
 })
