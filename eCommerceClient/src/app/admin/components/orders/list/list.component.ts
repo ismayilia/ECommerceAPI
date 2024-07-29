@@ -6,6 +6,8 @@ import { BaseComponent, SpinnerType } from '../../../../base/base.component';
 import { AlertifyService, MessageType, Position } from '../../../../services/admin/alertify.service';
 import { List_Order } from '../../../../contracts/order/list_order';
 import { OrderService } from '../../../../services/common/models/order.service';
+import { DialogService } from '../../../../services/common/dialog.service';
+import { OrderDetailDialogComponent, OrderDetailDialogState } from '../../../../dialogs/order-detail-dialog/order-detail-dialog.component';
 
 @Component({
   selector: 'app-list',
@@ -17,6 +19,7 @@ export class ListComponent extends BaseComponent {
     spinner: NgxSpinnerService,
     private orderService: OrderService,
     private alertifyService: AlertifyService,
+    private dialogService: DialogService
   ) {
     super(spinner);
   }
@@ -26,7 +29,8 @@ export class ListComponent extends BaseComponent {
     'userName',
     'totalPrice',
     'createdDate',
-    'delete'
+    'delete',
+    'viewdetail'
   ];
 
   dataSource: MatTableDataSource<List_Order> = null;
@@ -57,5 +61,15 @@ export class ListComponent extends BaseComponent {
 
   async ngOnInit() {
     await this.getOrders();
+  }
+
+  showDetail(id: string){
+    this.dialogService.openDialog({
+      componentType: OrderDetailDialogComponent,
+      data: id,
+      options: {
+        width:"750px"
+      }
+    });
   }
 }
