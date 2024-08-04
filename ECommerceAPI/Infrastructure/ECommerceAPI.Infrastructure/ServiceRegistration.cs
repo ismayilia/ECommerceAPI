@@ -1,4 +1,5 @@
-﻿using ECommerceAPI.Application.Abstractions.Storage;
+﻿using ECommerceAPI.Application.Abstractions.Services;
+using ECommerceAPI.Application.Abstractions.Storage;
 using ECommerceAPI.Application.Abstractions.Token;
 using ECommerceAPI.Infrastructure.Enums;
 using ECommerceAPI.Infrastructure.Services;
@@ -17,6 +18,7 @@ namespace ECommerceAPI.Infrastructure
 
 			serviceCollection.AddScoped<IStorageService, StorageService>();
 			serviceCollection.AddScoped<ITokenHandler, TokenHandler>();
+			serviceCollection.AddScoped<IMailService, MailService>();
 		}
 
 		//gelenin referans tipi class olmnalidir ve istorage-den miras almalidir
