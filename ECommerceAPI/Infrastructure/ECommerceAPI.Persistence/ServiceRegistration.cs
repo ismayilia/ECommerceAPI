@@ -5,6 +5,7 @@ using ECommerceAPI.Domain.Entities.Identity;
 using ECommerceAPI.Persistence.Context;
 using ECommerceAPI.Persistence.Repositories;
 using ECommerceAPI.Persistence.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -25,7 +26,8 @@ namespace ECommerceAPI.Persistence
 				options.Password.RequireLowercase = false;
 				options.Password.RequireUppercase = false;
 
-			}).AddEntityFrameworkStores<ECommerceAPIDbContext>();
+			}).AddEntityFrameworkStores<ECommerceAPIDbContext>()
+			.AddDefaultTokenProviders(); //Identity mexeanizmi userinden reset token yaratmaga imkan yaradan servisdir-autservice GeneratePasswordResetTokenAsync
 
 			services.AddScoped<ICustomerReadRepository, CustomerReadRepository>();
 			services.AddScoped<ICustomerWriteRepository, CustomerWriteRepository>();

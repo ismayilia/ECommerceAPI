@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using System.Net;
 using System.Net.Mail;
+using System.Text;
 
 namespace ECommerceAPI.Infrastructure.Services
 {
@@ -15,12 +16,12 @@ namespace ECommerceAPI.Infrastructure.Services
 			_configuration = configuration;
 		}
 
-		public async Task SendMessageAsync(string to, string subject, string body, bool isBodyHtml = true)
+		public async Task SendMailAsync(string to, string subject, string body, bool isBodyHtml = true)
 		{
-			await SendMessageAsync(new[] {to}, subject, body, isBodyHtml); ;
+			await SendMailAsync(new[] {to}, subject, body, isBodyHtml); ;
 		}
 
-		public async Task SendMessageAsync(string[] tos, string subject, string body, bool isBodyHtml = true)
+		public async Task SendMailAsync(string[] tos, string subject, string body, bool isBodyHtml = true)
 		{
 			MailMessage mail = new();
 			mail.IsBodyHtml = isBodyHtml;
@@ -37,6 +38,21 @@ namespace ECommerceAPI.Infrastructure.Services
 			smtp.EnableSsl = true;
 			smtp.Host = _configuration["Mail:Host"];
 			await smtp.SendMailAsync(mail);
+		}
+
+		public async Task SendPasswordResetMailAsync(string to, string userId, string resetToken)
+		{
+			// Mail içeriğini oluştur
+			var mail = new StringBuilder();
+
+			mail.AppendLine("Hello,<br><br>");
+			mail.AppendLine("If you want to reste your password you can do it through link:<br>");
+			mail.AppendLine($"<strong><a target=\"_blank\" href=\"{_configuration["AngularClientUrl"]}/update-password/{userId}/{resetToken}\">Click for reset password...</a></strong><br><br>");
+			mail.AppendLine("<span style=\"font-size:12px;\">If you do not know about this request please skip this mail.</span><br>");
+			mail.AppendLine("<br><br><br>IA-Mini|E-commerce");
+
+			// E-postayı gönder
+			await SendMailAsync(to, "Reset Password", mail.ToString());
 		}
 	}
 }

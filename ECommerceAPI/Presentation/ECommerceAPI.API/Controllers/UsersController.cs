@@ -32,12 +32,12 @@ namespace ECommerceAPI.API.Controllers
 
 		}
 
-		[HttpGet]
-		public async Task<IActionResult> ExampleMailTest()
-		{
-			await _mailService.SendMessageAsync("ismail8083@gmail.com", "test mail", "<strong>this is test mail.</strong>");
-			return Ok();
-		}
+		//[HttpGet]
+		//public async Task<IActionResult> ExampleMailTest()
+		//{
+		//	await _mailService.SendMailAsync("ismail8083@gmail.com", "test mail", "<strong>this is test mail.</strong>");
+		//	return Ok();
+		//}
 
 		
 

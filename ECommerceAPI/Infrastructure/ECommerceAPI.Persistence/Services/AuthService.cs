@@ -8,6 +8,7 @@ using ECommerceAPI.Domain.Entities.Identity;
 using Google.Apis.Auth;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -28,10 +29,11 @@ namespace ECommerceAPI.Persistence.Services
 		readonly ITokenHandler _tokenHandler;
 		readonly SignInManager<AppUser> _signInManager;
 		readonly IUserSevice _userService;
+		readonly IMailService _mailService;
 
 		public AuthService(IHttpClientFactory httpClientFactory, IConfiguration configuration,
 						   UserManager<AppUser> userManager, ITokenHandler tokenHandler,
-						   SignInManager<AppUser> signInManager, IUserSevice userService)
+						   SignInManager<AppUser> signInManager, IUserSevice userService, IMailService mailService)
 		{
 			_httpClient = httpClientFactory.CreateClient();
 			_configuration = configuration;
@@ -39,6 +41,7 @@ namespace ECommerceAPI.Persistence.Services
 			_tokenHandler = tokenHandler;
 			_signInManager = signInManager;
 			_userService = userService;
+			_mailService = mailService;
 		}
 
 		async Task<Token> CreateUserExternalAsync(AppUser user, string email, string name,
@@ -167,6 +170,37 @@ namespace ECommerceAPI.Persistence.Services
 			}
 			else
 				throw new NotFoundUserException();
+		}
+
+		public async Task PasswordResetAsync(string email)
+		{
+			AppUser user = await _userManager.FindByEmailAsync(email);
+			if (user != null)
+			{
+				string resetToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+				//encoding
+				byte[] tokenBytes = Encoding.UTF8.GetBytes(resetToken);
+				resetToken = WebEncoders.Base64UrlEncode(tokenBytes);
+				await _mailService.SendPasswordResetMailAsync(email, user.Id, resetToken);
+			}
+		}
+
+		public async Task<bool> VerifyResetTokenAsync(string resetToken, string userId)
+		{
+			AppUser user = await _userManager.FindByIdAsync(userId);
+
+			if (user != null)
+			{
+				//decoding
+				byte[] tokenBytes = WebEncoders.Base64UrlDecode(resetToken);
+				resetToken = Encoding.UTF8.GetString(tokenBytes);
+
+				return await _userManager.VerifyUserTokenAsync
+					(user, _userManager.Options.Tokens.PasswordResetTokenProvider, "ResetPassword", resetToken);
+
+			}
+			return false;
+
 		}
 	}
 }
