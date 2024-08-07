@@ -3,6 +3,7 @@ using ECommerceAPI.Application.Features.Commands.AppUser.CreateUser;
 using ECommerceAPI.Application.Features.Commands.AppUser.FacebookLogin;
 using ECommerceAPI.Application.Features.Commands.AppUser.GoogleLogin;
 using ECommerceAPI.Application.Features.Commands.AppUser.LoginUser;
+using ECommerceAPI.Application.Features.Commands.AppUser.UpdatePassword;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -39,7 +40,14 @@ namespace ECommerceAPI.API.Controllers
 		//	return Ok();
 		//}
 
-		
+		[HttpPost("update-password")]
+		public async Task<IActionResult> UpdatePassword([FromBody] UpdatePasswordCommandRequest updatePasswordCommandRequest)
+		{
+
+			UpdatePasswordCommandResponse response = await _mediator.Send(updatePasswordCommandRequest);
+			return Ok(response);
+
+		}
 
 	}
 }
