@@ -24,6 +24,7 @@ namespace ECommerceAPI.Persistence.Context
 		public DbSet<InvoiceFile> InvoiceFiles { get; set; }
 		public DbSet<Basket> Baskets { get; set; }
 		public DbSet<BasketItem> BasketItems { get; set; }
+		public DbSet<CompletedOrder> CompletedOrders { get; set; }
 
 
 		// Basketnen Ordenen One-to-one oldugu bildirmek
@@ -41,6 +42,12 @@ namespace ECommerceAPI.Persistence.Context
 				.HasOne(b => b.Order)
 				.WithOne(o => o.Basket)
 				.HasForeignKey<Order>(m => m.Id);
+
+			//one-to-one relation
+			builder.Entity<Order>()
+				.HasOne(o => o.CompletedOrder)
+				.WithOne(c => c.Order)
+				.HasForeignKey<CompletedOrder>(c => c.OrderId);
 
 			//Identitydbcontext olanda olamalidir, dbcontext olduqda ise lazim deyil
 			base.OnModelCreating(builder);

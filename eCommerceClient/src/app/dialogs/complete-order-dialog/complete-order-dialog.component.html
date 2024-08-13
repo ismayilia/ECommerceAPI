@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Warning!</h2>
+<mat-dialog-content>
+  <p>Are you sure you want complete order?</p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="close()">Reject</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial (click)="complete()">Accept</button>
+</mat-dialog-actions>
+
