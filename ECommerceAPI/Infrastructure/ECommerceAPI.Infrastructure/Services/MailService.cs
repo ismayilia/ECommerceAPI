@@ -16,6 +16,7 @@ namespace ECommerceAPI.Infrastructure.Services
 			_configuration = configuration;
 		}
 
+		
 		public async Task SendMailAsync(string to, string subject, string body, bool isBodyHtml = true)
 		{
 			await SendMailAsync(new[] {to}, subject, body, isBodyHtml); ;
@@ -53,6 +54,16 @@ namespace ECommerceAPI.Infrastructure.Services
 
 			// E-postayı gönder
 			await SendMailAsync(to, "Reset Password", mail.ToString());
+		}
+
+		public async Task SendCompletedOrderMailAsync(string to, string orderCode, DateTime orderDate, 
+													  string nameSurname, string userName)
+		{
+			string mail = $"Hello Dear {nameSurname}  {userName}, <br>" +
+				$"{orderCode} order at {orderDate} date has been completed and sent to the third party cargo company.<br>" +
+				$"Best regards!";
+
+			await SendMailAsync(to, $"{orderCode}-Order Completed", mail);
 		}
 	}
 }
