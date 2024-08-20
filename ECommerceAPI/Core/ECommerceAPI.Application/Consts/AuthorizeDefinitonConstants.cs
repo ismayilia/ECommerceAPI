@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ECommerceAPI.Application.Consts
 {
-	static public class AuthorizeDefinitonConstants
+	static public class AuthorizeDefinitionConstants
 	{
 		public const string Baskets = "Baskets";
 		public const string Orders = "Orders";

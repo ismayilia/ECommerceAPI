@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ECommerceAPI.Application.CustomAttributes
 {
-	public class AuthorizeDefinitonAttribute : Attribute
+	public class AuthorizeDefinitionAttribute : Attribute
 	{
         public string Menu { get; set; }
-        public string Definiton { get; set; }
+        public string Definition { get; set; }
         public ActionType ActionType { get; set; }
     }
 }

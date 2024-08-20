@@ -16,7 +16,7 @@ namespace ECommerceAPI.API.Controllers
 		}
 
 		[HttpGet]
-		public IActionResult GetAuthorizeDefinitonEndpoints() 
+		public IActionResult GetAuthorizeDefinitionEndpoints() 
 		{
 			// controllere catmag ucun
 			var datas = _applicationService.GetAuthorizeDefinitionEndpoints(typeof(Program));
