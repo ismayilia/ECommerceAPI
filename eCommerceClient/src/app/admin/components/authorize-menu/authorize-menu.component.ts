@@ -5,6 +5,8 @@ import { FlatTreeControl } from '@angular/cdk/tree';
 import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
 import { ApplicationService } from '../../../services/common/models/application.service';
 import { Menu } from '../../../contracts/application-configurations/menu';
+import { DialogService } from '../../../services/common/dialog.service';
+import { AuthorizeMenuDialogComponent } from '../../../dialogs/authorize-menu-dialog/authorize-menu-dialog.component';
 
 interface FoodNode {
   name: string;
@@ -29,7 +31,7 @@ interface ExampleFlatNode {
   styleUrl: './authorize-menu.component.scss'
 })
 export class AuthorizeMenuComponent extends BaseComponent implements OnInit {
-  constructor(spinner: NgxSpinnerService, private applicationService: ApplicationService) {
+  constructor(spinner: NgxSpinnerService, private applicationService: ApplicationService, private dialogService: DialogService) {
     super(spinner);
   }
 
@@ -72,4 +74,17 @@ export class AuthorizeMenuComponent extends BaseComponent implements OnInit {
   dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
 
   hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
+
+  assignRole(code: string, name: string) {
+    this.dialogService.openDialog({
+      componentType: AuthorizeMenuDialogComponent,
+      data: { code: code, name: name },
+      options: {
+        width: "750px",
+      },
+      afterClosed: () => {
+
+      }
+    });
+  }
 }
