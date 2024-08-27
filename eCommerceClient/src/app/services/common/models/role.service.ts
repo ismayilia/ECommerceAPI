@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClientService } from '../http-client.service';
 import { firstValueFrom, Observable } from 'rxjs';
+import { error } from 'console';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +10,17 @@ export class RoleService {
 
   constructor(private httpClientService: HttpClientService) { }
 
-  getRoles() {
+  async getRoles(page: number, size: number, successCallBack?: () => void, errorCallBack?: (error) => void) {
+    const observable: Observable<any> = this.httpClientService.get({
+      controller: "roles",
+      queryString: `page=${page}&size=${size}`
+    });
 
+    const promiseData = firstValueFrom(observable);
+    promiseData.then(successCallBack)
+      .catch(errorCallBack);
+
+    return await promiseData;
   }
 
   async create(name: string, successCallBack?: () => void, errorCallBack?: (error) => void) {
@@ -18,6 +28,10 @@ export class RoleService {
       controller: "roles",
     }, { name: name });
 
-    return await firstValueFrom(observable) as { succeeded: boolean };
+    const promiseData = firstValueFrom(observable);
+    promiseData.then(successCallBack)
+      .catch(errorCallBack);
+
+    return await promiseData as { succeeded: boolean };
   }
 }

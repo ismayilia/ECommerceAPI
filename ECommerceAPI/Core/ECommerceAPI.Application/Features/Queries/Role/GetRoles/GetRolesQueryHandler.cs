@@ -19,11 +19,12 @@ namespace ECommerceAPI.Application.Features.Queries.Role.GetRoles
 
 		public async Task<GetRolesQueryResponse> Handle(GetRolesQueryRequest request, CancellationToken cancellationToken)
 		{
-			var datas = _roleService.GetAllRoles();
+			var (datas, count) = _roleService.GetAllRoles(request.Page, request.Size);
 
 			return new()
 			{
-				Datas = datas
+				Datas = datas,
+				TotalCount = count
 			};
 		}
 	}

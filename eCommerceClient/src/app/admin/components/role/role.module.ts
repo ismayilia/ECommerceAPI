@@ -11,6 +11,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { CreateComponent } from './create/create.component';
 import { ListComponent } from './list/list.component';
+import { DeleteDirectiveModule } from '../../../directives/admin/delete.directive.module';
 
 
 
@@ -30,6 +31,7 @@ import { ListComponent } from './list/list.component';
     MatTableModule,
     MatPaginatorModule,
     MatDialogModule,
+    DeleteDirectiveModule
   ],
   
 })

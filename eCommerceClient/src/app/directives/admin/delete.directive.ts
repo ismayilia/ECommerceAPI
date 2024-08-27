@@ -39,9 +39,11 @@ export class DeleteDirective {
     private alertifyService: AlertifyService,
     private dialogService: DialogService
   ) {
-    const img = _render.createElement('img');
-    img.setAttribute('src', '../../../../../assets/delete.png');
-    img.setAttribute('style', 'cursor:pointer; width:50%;');
+    const img = _render.createElement("img");
+    img.setAttribute("src", "../../../../../assets/delete.png");
+    img.setAttribute("style", "cursor: pointer;");
+    img.width = 25;
+    img.height = 25;
     _render.appendChild(element.nativeElement, img);
   }
 
@@ -75,7 +77,7 @@ export class DeleteDirective {
                 700,
                 () => {
                   this.callback.emit();
-                  this.alertifyService.message('Product has been deleted!', {
+                  this.alertifyService.message(`${this.controller == 'roles' ? 'Rol' : 'Product'} has been deleted!`, {
                     dismissOthers: true,
                     messageType: MessageType.Success,
                     position: Position.TopRight,

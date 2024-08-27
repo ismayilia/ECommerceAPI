@@ -20,23 +20,25 @@ namespace ECommerceAPI.Persistence.Services
 
 		public async Task<bool> CreateRole(string name)
 		{
-			IdentityResult result = await _roleManager.CreateAsync(new() { Name = name });
+			IdentityResult result = await _roleManager.CreateAsync(new() { Id = Guid.NewGuid().ToString(), Name = name });
 			return result.Succeeded;
 		}
 
-		public async Task<bool> DeleteRole(string name)
+		public async Task<bool> DeleteRole(string id)
 		{
 			//var s = await _roleManager.FindByNameAsync(name);
 			//var m =await _roleManager.DeleteAsync(s);
 			//return m.Succeeded;
-
-			IdentityResult result = await _roleManager.DeleteAsync(new() { Name = name });
+			AppRole appRole = await _roleManager.FindByIdAsync(id);
+			IdentityResult result = await _roleManager.DeleteAsync(appRole);
 			return result.Succeeded;
 		}
 
-		public IDictionary<string, string> GetAllRoles()
+		public (object, int) GetAllRoles(int page, int size)
 		{
-			return _roleManager.Roles.ToDictionary(role => role.Id, role => role.Name);
+			var query = _roleManager.Roles;
+			return (query.Skip(page * size).Take(size).Select(r => new { r.Id, r.Name }),
+					query.Count());
 		}
 
 		public async Task<(string id, string name)> GetRoleById(string id)
@@ -47,7 +49,9 @@ namespace ECommerceAPI.Persistence.Services
 
 		public async Task<bool> UpdateRole(string id, string name)
 		{
-			IdentityResult result = await _roleManager.UpdateAsync(new() { Id = id, Name = name });
+			AppRole role = await _roleManager.FindByIdAsync(id);
+			role.Name = name;
+			IdentityResult result = await _roleManager.UpdateAsync(role);
 			return result.Succeeded;
 		}
 	}
