@@ -47,6 +47,10 @@ namespace ECommerceAPI.Persistence
 			services.AddScoped<IBasketItemReadRepository, BasketItemReadRepository>();
 			services.AddScoped<ICompletedOrderReadRepository, CompletedOrderReadRepository>();
 			services.AddScoped<ICompletedOrderWriteRepository, CompletedOrderWriteRepository>();
+			services.AddScoped<IMenuReadRepository, MenuReadRepository>();
+			services.AddScoped<IMenuWriteRepository, MenuWriteRepository>();
+			services.AddScoped<IEndpointWriteRepository, EndpointWriteRepository>();
+			services.AddScoped<IEndpointReadRepository, EndpointReadRepository>();
 			//services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
 			//services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
 
@@ -57,6 +61,7 @@ namespace ECommerceAPI.Persistence
 			services.AddScoped<IBasketService, BasketService>();
 			services.AddScoped<IOrderService, OrderService>();
 			services.AddScoped<IRoleService, RoleService>();
+			services.AddScoped<IAuthorizationEndpointService, AuthorizationEndpointService>();
 				
 		}
 	}
