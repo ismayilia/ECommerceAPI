@@ -2,6 +2,9 @@
 using ECommerceAPI.Application.Abstractions.Services.Configurations;
 using ECommerceAPI.Application.Repositories;
 using ECommerceAPI.Domain.Entities;
+using ECommerceAPI.Domain.Entities.Identity;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,20 +17,85 @@ namespace ECommerceAPI.Persistence.Services
 	{
 		readonly IApplicationService _applicationService;
 		readonly IEndpointReadRepository _endpointReadRepository;
+		readonly IEndpointWriteRepository _endpointWriteRepository;
+		readonly IMenuReadRepository _menuReadRepository;
+		readonly IMenuWriteRepository _menuWriteRepository;
+		readonly RoleManager<AppRole> _roleManager;
 
-		public AuthorizationEndpointService(IApplicationService applicationService, IEndpointReadRepository endpointReadRepository)
+		public AuthorizationEndpointService(IApplicationService applicationService,
+			IEndpointReadRepository endpointReadRepository,
+			IEndpointWriteRepository endpointWriteRepository,
+			IMenuReadRepository menuReadRepository,
+			IMenuWriteRepository menuWriteRepository,
+			RoleManager<AppRole> roleManager)
 		{
 			_applicationService = applicationService;
 			_endpointReadRepository = endpointReadRepository;
+			_endpointWriteRepository = endpointWriteRepository;
+			_menuReadRepository = menuReadRepository;
+			_menuWriteRepository = menuWriteRepository;
+			_roleManager = roleManager;
 		}
 
-		public async Task AssignRoleEndpointAsync(string[] roles, string code)
+		public async Task AssignRoleEndpointAsync(string[] roles, string menu, string code, Type type)
 		{
-			Endpoint endpoint = await _endpointReadRepository.GetSingleAsync(e => e.Code == code);
-			if (endpoint == null)
+			Menu _menu = await _menuReadRepository.GetSingleAsync(m => m.Name == menu);
+
+			if (_menu == null)
 			{
 
+				_menu = new()
+				{
+					Id = Guid.NewGuid(),
+					Name = menu
+				};
+
+				await _menuWriteRepository.AddAsync(_menu);
+				await _menuWriteRepository.SaveAsync();
 			}
+
+
+			Endpoint endpoint = await _endpointReadRepository.Table.Include(e => e.Menu).Include(e=> e.Roles)
+				.FirstOrDefaultAsync(e => e.Code == code && e.Menu.Name == menu);
+
+			if (endpoint == null)
+			{
+				var action = _applicationService.GetAuthorizeDefinitionEndpoints(type).FirstOrDefault(m => m.Name == menu)
+					.Actions.FirstOrDefault(e => e.Code == code);
+
+				endpoint = new()
+				{
+					Code = action.Code,
+					ActionType = action.ActionType,
+					HttpType = action.HttpType,
+					Definition = action.Definition,
+					Menu = _menu,
+					Id = Guid.NewGuid(),
+				};
+
+				await _endpointWriteRepository.AddAsync(endpoint);
+				await _endpointWriteRepository.SaveAsync();
+			}
+
+			foreach (var role in endpoint.Roles)
+				endpoint.Roles.Remove(role);
+
+			var appRoles = await _roleManager.Roles.Where(r => roles.Contains(r.Name)).ToListAsync();
+
+			foreach (var role in appRoles)
+				endpoint.Roles.Add(role);
+
+			await _endpointWriteRepository.SaveAsync();
+
+
+		}
+
+		public async Task<List<string>> GetRolesToEndpointAsync(string id)
+		{
+			Endpoint endpoint =  await _endpointReadRepository.Table.Include(e => e.Roles)
+				.FirstOrDefaultAsync(e => e.Id == Guid.Parse(id));
+
+			return endpoint.Roles.Select(r => r.Name).ToList();
 		}
 	}
 }

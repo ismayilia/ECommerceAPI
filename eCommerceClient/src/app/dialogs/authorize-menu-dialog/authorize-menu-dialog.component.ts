@@ -4,6 +4,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { RoleService } from '../../services/common/models/role.service';
 import { List_Role } from '../../contracts/role/List_Role';
 import { MatSelectionList } from '@angular/material/list';
+import { AuthorizationEndpointService } from '../../services/common/models/authorization-endpoint.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { SpinnerType } from '../../base/base.component';
 
 @Component({
   selector: 'app-authorize-menu-dialog',
@@ -13,7 +16,9 @@ import { MatSelectionList } from '@angular/material/list';
 export class AuthorizeMenuDialogComponent extends BaseDialog<AuthorizeMenuDialogComponent> implements OnInit {
   constructor(dialogRef: MatDialogRef<AuthorizeMenuDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: AuthorizeMenuState | any,
-    private roleService: RoleService
+    private roleService: RoleService,
+    private authorizationEndpointService: AuthorizationEndpointService,
+    private spinner: NgxSpinnerService
   ) {
     super(dialogRef);
   }
@@ -25,6 +30,14 @@ export class AuthorizeMenuDialogComponent extends BaseDialog<AuthorizeMenuDialog
 
   assignRoles(rolesComponent: MatSelectionList) {
     const roles: string[] = rolesComponent.selectedOptions.selected.map(o => o._elementRef.nativeElement.innerText)
+    this.spinner.show(SpinnerType.BallAtom);
+    this.authorizationEndpointService.assigRoleEndpoint(roles, this.data.code, this.data.menuName,
+      () => {
+        this.spinner.hide(SpinnerType.BallAtom);
+
+      }, error => {
+
+      })
   }
 
 }
