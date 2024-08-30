@@ -19,7 +19,7 @@ namespace ECommerceAPI.Application.Features.Queries.AuthorizationEndpoint.GetRol
 
 		public async Task<GetRolesToEndpointQueryResponse> Handle(GetRolesToEndpointQueryRequest request, CancellationToken cancellationToken)
 		{
-			var datas  = await _authorizationEndpointService.GetRolesToEndpointAsync(request.Id);
+			var datas  = await _authorizationEndpointService.GetRolesToEndpointAsync(request.Code, request.Menu);
 
 			return new()
 			{

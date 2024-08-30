@@ -55,7 +55,7 @@ namespace ECommerceAPI.Persistence.Services
 			}
 
 
-			Endpoint endpoint = await _endpointReadRepository.Table.Include(e => e.Menu).Include(e=> e.Roles)
+			Endpoint endpoint = await _endpointReadRepository.Table.Include(e => e.Menu).Include(e => e.Roles)
 				.FirstOrDefaultAsync(e => e.Code == code && e.Menu.Name == menu);
 
 			if (endpoint == null)
@@ -90,12 +90,14 @@ namespace ECommerceAPI.Persistence.Services
 
 		}
 
-		public async Task<List<string>> GetRolesToEndpointAsync(string id)
+		public async Task<List<string>> GetRolesToEndpointAsync(string code, string menu)
 		{
-			Endpoint endpoint =  await _endpointReadRepository.Table.Include(e => e.Roles)
-				.FirstOrDefaultAsync(e => e.Id == Guid.Parse(id));
+			Endpoint endpoint = await _endpointReadRepository.Table.Include(e => e.Roles).Include(e => e.Menu)
+				.FirstOrDefaultAsync(e => e.Code == code && e.Menu.Name == menu);
+			if (endpoint != null)
+				return endpoint.Roles.Select(r => r.Name).ToList();
+			return null;
 
-			return endpoint.Roles.Select(r => r.Name).ToList();
 		}
 	}
 }

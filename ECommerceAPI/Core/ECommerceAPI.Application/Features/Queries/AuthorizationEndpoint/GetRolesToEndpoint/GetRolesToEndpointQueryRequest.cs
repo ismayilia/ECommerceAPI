@@ -9,6 +9,7 @@ namespace ECommerceAPI.Application.Features.Queries.AuthorizationEndpoint.GetRol
 {
 	public class GetRolesToEndpointQueryRequest : IRequest<GetRolesToEndpointQueryResponse>
 	{
-        public string Id { get; set; }
+        public string Code { get; set; }
+        public string Menu { get; set; }
     }
 }
