@@ -6,6 +6,7 @@ using ECommerceAPI.Application.Helpers;
 using ECommerceAPI.Domain.Entities.Identity;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,8 @@ namespace ECommerceAPI.Persistence.Services
 		{
 			_userManager = userManager;
 		}
+
+
 		public async Task<CreatUserResponse> CreatAsync(CreatUser model)
 		{
 			IdentityResult result = await _userManager.CreateAsync(new()
@@ -45,6 +48,23 @@ namespace ECommerceAPI.Persistence.Services
 			}
 
 			return response;
+		}
+
+		public async Task<List<ListUser>> GetAllUsersAsync(int page, int size)
+		{
+			var users = await _userManager.Users
+				.Skip(page*size)
+				.Take(size)
+				.ToListAsync();
+
+			return users.Select(user => new ListUser
+			{
+				Id = user.Id,
+				Email = user.Email,
+				NameSurname = user.NameSurname,
+				TwoFactorEnabled = user.TwoFactorEnabled,
+				UserName = user.UserName
+			}).ToList();
 		}
 
 		public async Task UpdatePasswordAsync(string userId, string resetToken, string newPassword)
@@ -75,5 +95,8 @@ namespace ECommerceAPI.Persistence.Services
 				throw new NotFoundUserException();
 
 		}
+
+		public int TotalUsersCount => _userManager.Users.Count();
+
 	}
 }
