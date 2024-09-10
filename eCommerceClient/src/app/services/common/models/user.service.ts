@@ -56,5 +56,34 @@ export class UserService {
   }
 
 
+  async assignRoleToUser(id: string, roles: string[], successCallBack?: () => void, errorCallBack?: (error) => void) {
+    const observable: Observable<any> = this.httpClientService.post({
+      controller: "users",
+      action: "assign-role-to-user"
+    }, {
+      userId: id,
+      roles: roles
+    })
+
+    const promisData = firstValueFrom(observable);
+    promisData.then(() => successCallBack())
+      .catch(error => errorCallBack(error));
+
+    await promisData;
+  }
+
+  async getRolesToUser(userId: string, successCallBack?: () => void, errorCallBack?: (error) => void): Promise<string[] >{
+    const observable: Observable<{userRoles: string[]}> = this.httpClientService.get({
+      controller: "users",
+      action: "get-roles-to-user"
+    }, userId);
+
+    const promisData = firstValueFrom(observable);
+    promisData.then(() => successCallBack())
+      .catch(error => errorCallBack(error));
+
+     return (await promisData).userRoles;
+  }
+
 
 }

@@ -1,0 +1,23 @@
+<div style="width: 90%;">
+    <h2 style="display: inline;" 
+    mat-dialog-title matBadge="{{rolesComponent.selectedOptions.selected.length}}/{{roles.totalCount}}" matBadgeOverlap="false">
+    Adding Role this user</h2>
+    <mat-dialog-content>
+      <p>You can add roles to the chosen page from below:</p>
+    </mat-dialog-content>
+  
+    <mat-selection-list #rolesComponent>
+        <mat-list-option *ngFor="let role of listRoles" selected={{role.selected}}>
+          {{role.name}}
+        </mat-list-option>
+    </mat-selection-list>
+  
+    
+  
+    <!-- endponinte nece dene roll vermishikse onun sayi -->
+    <div class="demo-section"></div>
+    <mat-dialog-actions>
+      <button mat-button (click)="close()">Reject</button>
+      <button mat-button [mat-dialog-close]="data" cdkFocusInitial (click)="assignRoles(rolesComponent)">Add to role</button>
+    </mat-dialog-actions>
+  </div>

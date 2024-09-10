@@ -7,13 +7,14 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { List_User } from '../../../../contracts/users/list_user';
 import { UserService } from '../../../../services/common/models/user.service';
+import { AuthorizeUserDialogComponent } from '../../../../dialogs/authorize-user-dialog/authorize-user-dialog.component';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss'
 })
-export class ListComponent extends BaseComponent implements OnInit{
+export class ListComponent extends BaseComponent implements OnInit {
   constructor(
     spinner: NgxSpinnerService,
     private userService: UserService,
@@ -62,8 +63,20 @@ export class ListComponent extends BaseComponent implements OnInit{
     await this.getUsers();
   }
 
-  assignRole(id: string){
-    alert(id)
+  assignRole(id: string) {
+    this.dialogService.openDialog({
+      componentType: AuthorizeUserDialogComponent,
+      data: id,
+      options: {
+        width: "750px",
+      },
+      afterClosed: () => {
+        this.alertifyService.message("Success, added roles", {
+          messageType: MessageType.Success,
+          position: Position.TopRight
+        })
+      }
+    });
   }
 
 }
