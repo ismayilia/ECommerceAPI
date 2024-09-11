@@ -1,6 +1,7 @@
 ﻿using ECommerce.API.SignalR;
 using ECommerceAPI.API.Configurations.ColumnWriters;
 using ECommerceAPI.API.Extensions;
+using ECommerceAPI.API.Filters;
 using ECommerceAPI.Application;
 using ECommerceAPI.Application.Validators.Products;
 using ECommerceAPI.Infrastructure;
@@ -93,10 +94,17 @@ builder.Services.AddHttpLogging(logging =>
 
 
 //addcontrollersin icinde olanlar validationfilteri ucundur
-builder.Services.AddControllers(options => options.Filters.Add<ValidationFilter>())
+#pragma warning disable CS0618 // Type or member is obsolete
+builder.Services.AddControllers(options => 
+{
+	options.Filters.Add<ValidationFilter>();
+	options.Filters.Add<RolePermissionFilter>();
+
+})
 	.AddFluentValidation(configuration => configuration.RegisterValidatorsFromAssemblyContaining<CreateProductValidator>())
 	.ConfigureApiBehaviorOptions(options => options.SuppressModelStateInvalidFilter = true);
-//butun validatonlari register edir. hamisi ucun
+#pragma warning restore CS0618 // Type or member is obsolete
+							  //butun validatonlari register edir. hamisi ucun
 
 
 //builder.Services.AddDbContext<ECommerceAPIDbContext>(options =>

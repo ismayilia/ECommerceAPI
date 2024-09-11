@@ -3,6 +3,8 @@ using ECommerceAPI.Application.DTOs.User;
 using ECommerceAPI.Application.Exceptions;
 using ECommerceAPI.Application.Features.Commands.AppUser.CreateUser;
 using ECommerceAPI.Application.Helpers;
+using ECommerceAPI.Application.Repositories;
+using ECommerceAPI.Domain.Entities;
 using ECommerceAPI.Domain.Entities.Identity;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -18,9 +20,11 @@ namespace ECommerceAPI.Persistence.Services
 	public class UserService : IUserSevice
 	{
 		readonly UserManager<AppUser> _userManager;
-		public UserService(UserManager<AppUser> userManager)
+		readonly IEndpointReadRepository _endpointReadRepository;
+		public UserService(UserManager<AppUser> userManager, IEndpointReadRepository endpointReadRepository)
 		{
 			_userManager = userManager;
+			_endpointReadRepository = endpointReadRepository;
 		}
 
 
@@ -111,9 +115,11 @@ namespace ECommerceAPI.Persistence.Services
 			}
 		}
 
-		public async Task<string[]> GetRolesToUserAsync(string userId)
+		public async Task<string[]> GetRolesToUserAsync(string userIdOrName)
 		{
-			AppUser user = await _userManager.FindByIdAsync(userId);
+			AppUser user = await _userManager.FindByIdAsync(userIdOrName);
+			if (user == null)
+				user = await _userManager.FindByNameAsync(userIdOrName);
 			if (user != null)
 			{
 				var userRoles = await _userManager.GetRolesAsync(user);
@@ -121,6 +127,53 @@ namespace ECommerceAPI.Persistence.Services
 			}
 			return new string[] { };
 
+		}
+
+		public async Task<bool> HasRolePermissionToEndpointAsync(string name, string code)
+		{
+			var userRoles = await GetRolesToUserAsync(name);
+
+			if (!userRoles.Any())
+				return false;
+
+			Endpoint endpoint = await _endpointReadRepository.Table
+															 .Include(m => m.Roles)
+															 .FirstOrDefaultAsync(e => e.Code == code);
+			if (endpoint == null)
+				return false;
+
+			var hasRole = false;
+			var endpointsRoles = endpoint.Roles.Select(r => r.Name);
+
+			// first version
+			//foreach (var userRole in userRoles)
+			//{
+			//	if (!hasRole)
+			//	{
+			//		foreach (var endpointsRole in endpointsRoles)
+			//			if (userRole == endpointsRole)
+			//			{
+			//				hasRole = true;
+			//				break;
+			//			}
+			//	}
+			//	else
+			//		break;
+			//}
+
+			//return hasRole;
+
+
+			// second version
+
+			foreach (var userRole in userRoles)
+			{
+				foreach (var endpointsRole in endpointsRoles)
+					if (userRole == endpointsRole)
+						return true;
+			}
+
+			return false;
 		}
 	}
 }

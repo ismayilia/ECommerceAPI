@@ -41,7 +41,13 @@ export class HttpErrorHandlerInterceptorService implements HttpInterceptor {
                   });
             }
           }).then(data => {
-
+            this.toastrService.message(
+              'You do not have permition for this action-401.',
+              'Unathorized Action!',
+              {
+                messageType: ToastrMessageType.Warning,
+                position: ToastrPosition.TopLeft,
+              });
           });
 
           break;
