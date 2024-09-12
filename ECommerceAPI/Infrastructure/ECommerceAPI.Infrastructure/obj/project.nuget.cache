@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Umt7u5jMLELYN5W37Qios0SIEubnyTlnuEKtAaN4XvQw4wCEchZo+xvP0P/58sJc50DYV+pzPy6Bp35r69a4+A==",
+  "dgSpecHash": "4iA8MKXRvodTXjiXn/kjdQua+h10XIaNYGmJafZADgiNIVu+EsQ42HHfC4fRxGCng6i9YL2ujsZ7Q+EQuWA6og==",
   "success": true,
   "projectFilePath": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Infrastructure\\ECommerceAPI.Infrastructure\\ECommerceAPI.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -62,6 +62,7 @@
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\HP\\.nuget\\packages\\qrcoder\\1.4.3\\qrcoder.1.4.3.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.1\\system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",

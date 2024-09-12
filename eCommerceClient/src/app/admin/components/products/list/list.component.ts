@@ -12,6 +12,7 @@ import {
 import { MatPaginator } from '@angular/material/paginator';
 import { DialogService } from '../../../../services/common/dialog.service';
 import { SelectProductImageDialogComponent } from '../../../../dialogs/select-product-image-dialog/select-product-image-dialog.component';
+import { QrcodeDialogComponent } from '../../../../dialogs/qrcode-dialog/qrcode-dialog.component';
 
 declare var $: any;
 
@@ -37,6 +38,7 @@ export class ListComponent extends BaseComponent {
     'createdDate',
     'updatedDate',
     'photos',
+    'qrcode',
     'update',
     'delete',
   ];
@@ -81,5 +83,13 @@ export class ListComponent extends BaseComponent {
 
   async ngOnInit() {
     await this.getProducts();
+  }
+
+  showQRCode(productId: string) {
+    this.dialogService.openDialog({
+      componentType: QrcodeDialogComponent,
+      data: productId,
+      afterClosed: () => { },
+    })
   }
 }

@@ -22,6 +22,7 @@ namespace ECommerceAPI.Infrastructure
 			serviceCollection.AddScoped<ITokenHandler, TokenHandler>();
 			serviceCollection.AddScoped<IMailService, MailService>();
 			serviceCollection.AddScoped<IApplicationService, ApplicationService>();
+			serviceCollection.AddScoped<IQRCodeService, QRCodeService>();
 		}
 
 		//gelenin referans tipi class olmnalidir ve istorage-den miras almalidir

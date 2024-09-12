@@ -1,4 +1,5 @@
-﻿using ECommerceAPI.Application.Abstractions.Storage;
+﻿using ECommerceAPI.Application.Abstractions.Services;
+using ECommerceAPI.Application.Abstractions.Storage;
 using ECommerceAPI.Application.Consts;
 using ECommerceAPI.Application.CustomAttributes;
 using ECommerceAPI.Application.Enums;
@@ -28,16 +29,19 @@ namespace ECommerceAPI.API.Controllers
 		readonly IConfiguration configuration; //appsettinge catmaq ucun
 		readonly IMediator _mediator;
 		readonly ILogger<ProductsController> _logger;
+		readonly IProductService _productService;
 
 		public ProductsController(
 									IConfiguration configuration,
 									IMediator mediator,
-									ILogger<ProductsController> logger)
+									ILogger<ProductsController> logger,
+									IProductService productService)
 		{
-			
+
 			this.configuration = configuration;
 			_mediator = mediator;
 			_logger = logger;
+			_productService = productService;
 		}
 
 		[HttpGet]
@@ -45,6 +49,13 @@ namespace ECommerceAPI.API.Controllers
 		{
 			GetAllProductQueryResponse response = await _mediator.Send(getAllProductQueryRequest);
 			return Ok(response);
+		}
+
+		[HttpGet("qrcode/{productId}")]
+		public async Task<IActionResult> GetQRCodeToProduct([FromRoute] string productId)
+		{
+			var data  = await _productService.QRCodeToProductAsync(productId);
+			return File(data, "image/png");
 		}
 
 		[HttpGet("{Id}")]

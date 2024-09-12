@@ -199,3 +199,4 @@ C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\obj\
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\obj\Debug\net6.0\ECommerceAPI.API.pdb
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\obj\Debug\net6.0\ECommerceAPI.API.genruntimeconfig.cache
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\obj\Debug\net6.0\ref\ECommerceAPI.API.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Presentation\ECommerceAPI.API\bin\Debug\net6.0\QRCoder.dll
