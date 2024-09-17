@@ -101,7 +101,7 @@ export class ProductService {
     successCallBack();
   }
 
-  async changeShowcaseImage(imageId: string, productId: string, successCallBack?: () => void): Promise<void>{
+  async changeShowcaseImage(imageId: string, productId: string, successCallBack?: () => void): Promise<void> {
     const changeShowcaseImageObservable = this.httpClientService.get({
       controller: "products",
       action: "ChangeShowcaseImage",
@@ -111,5 +111,17 @@ export class ProductService {
     await firstValueFrom(changeShowcaseImageObservable);
     successCallBack();
 
+  }
+
+  async updateStockQrCodeToProduct(productId: string, stock: number, successCallBack?: () => void) {
+    const observable = this.httpClientService.put({
+      action: "qrcode",
+      controller: "products"
+    }, {
+      productId, stock
+    });
+
+    await firstValueFrom(observable);
+    successCallBack();
   }
 }

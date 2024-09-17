@@ -72,5 +72,4 @@
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Cancel</button>
   <button mat-button [mat-dialog-close]="data" cdkFocusInitial (click)="completeOrder()" *ngIf="!singleOrder.completed">Confirm Order</button>
-
 </mat-dialog-actions>
