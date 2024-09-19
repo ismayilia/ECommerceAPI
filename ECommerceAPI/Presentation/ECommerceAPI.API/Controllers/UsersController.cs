@@ -33,6 +33,7 @@ namespace ECommerceAPI.API.Controllers
 		}
 
 		[HttpPost]
+		[AllowAnonymous]
 		public async Task<IActionResult> CreateUser(CreateUserCommandRequest createUserCommandRequest)
 		{
 
@@ -49,6 +50,7 @@ namespace ECommerceAPI.API.Controllers
 		//}
 
 		[HttpPost("update-password")]
+		[AllowAnonymous]
 		public async Task<IActionResult> UpdatePassword([FromBody] UpdatePasswordCommandRequest updatePasswordCommandRequest)
 		{
 

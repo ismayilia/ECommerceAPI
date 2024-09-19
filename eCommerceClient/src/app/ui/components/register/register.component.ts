@@ -16,7 +16,7 @@ export class RegisterComponent extends BaseComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private userService: UserService,
     private toastService: CustomToastrService, spinner: NgxSpinnerService
-  ) { 
+  ) {
     super(spinner)
   }
 
@@ -72,15 +72,15 @@ export class RegisterComponent extends BaseComponent implements OnInit {
 
     const result: Create_User = await this.userService.create(user);
 
-    if(result.succeeded)
+    if (result.succeeded)
       this.toastService.message(result.message, "User created success!!!", {
-    messageType: ToastrMessageType.Success,
-    position: ToastrPosition.TopRight
-    })
+        messageType: ToastrMessageType.Success,
+        position: ToastrPosition.TopRight
+      })
     else
-    this.toastService.message(result.message, "User created not success!!!", {
-      messageType: ToastrMessageType.Error,
-      position: ToastrPosition.TopRight
+      this.toastService.message(result.message, "User created not success!!!", {
+        messageType: ToastrMessageType.Error,
+        position: ToastrPosition.TopRight
       })
   }
 }

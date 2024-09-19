@@ -8,6 +8,7 @@ using ECommerceAPI.Domain.Entities;
 using ECommerceAPI.Domain.Entities.Identity;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,6 @@ namespace ECommerceAPI.Persistence.Services
 			_userManager = userManager;
 			_endpointReadRepository = endpointReadRepository;
 		}
-
 
 		public async Task<CreatUserResponse> CreatAsync(CreatUser model)
 		{
