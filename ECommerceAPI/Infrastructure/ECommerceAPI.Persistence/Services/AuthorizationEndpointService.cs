@@ -73,6 +73,7 @@ namespace ECommerceAPI.Persistence.Services
 					Id = Guid.NewGuid(),
 				};
 
+
 				await _endpointWriteRepository.AddAsync(endpoint);
 				await _endpointWriteRepository.SaveAsync();
 			}

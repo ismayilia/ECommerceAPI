@@ -63,7 +63,7 @@ namespace ECommerceAPI.Persistence
 			services.AddScoped<IRoleService, RoleService>();
 			services.AddScoped<IAuthorizationEndpointService, AuthorizationEndpointService>();
 			services.AddScoped<IProductService, ProductService>();
-				
+
 		}
 	}
 }

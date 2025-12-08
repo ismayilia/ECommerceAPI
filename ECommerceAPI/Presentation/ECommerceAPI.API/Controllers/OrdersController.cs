@@ -1,13 +1,11 @@
 ﻿using ECommerceAPI.Application.Consts;
 using ECommerceAPI.Application.CustomAttributes;
-using ECommerceAPI.Application.Enums;
 using ECommerceAPI.Application.Features.Commands.Order.CompleteOrder;
 using ECommerceAPI.Application.Features.Commands.Order.CreateOrder;
 using ECommerceAPI.Application.Features.Queries.Order.GetAllOrder;
 using ECommerceAPI.Application.Features.Queries.Order.GetOrderById;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerceAPI.API.Controllers

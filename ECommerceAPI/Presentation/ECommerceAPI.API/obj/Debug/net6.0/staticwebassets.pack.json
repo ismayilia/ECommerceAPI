@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\photo-images\\16165b12-a681-486a-8cdd-88c74f86a0af-featured.jpg"
     },
     {
+      "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\photo-images\\bloglates1.jpg",
+      "PackagePath": "staticwebassets\\photo-images\\bloglates1.jpg"
+    },
+    {
       "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\photo-images\\evade-2.jpg",
       "PackagePath": "staticwebassets\\photo-images\\evade-2.jpg"
     },
@@ -19,6 +23,10 @@
     {
       "Id": "C:\\Users\\HP\\Desktop\\ECommerceAPI\\ECommerceAPI\\Presentation\\ECommerceAPI.API\\wwwroot\\photo-images\\mechanical.jpg",
       "PackagePath": "staticwebassets\\photo-images\\mechanical.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.ECommerceAPI.API.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.ECommerceAPI.API.Microsoft.AspNetCore.StaticWebAssets.props",

@@ -30,9 +30,10 @@ C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerceAPI.Persis
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerceAPI.Persistence\obj\Debug\net6.0\ECommerceAPI.Persistence.AssemblyInfoInputs.cache
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerceAPI.Persistence\obj\Debug\net6.0\ECommerceAPI.Persistence.AssemblyInfo.cs
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerceAPI.Persistence\obj\Debug\net6.0\ECommerceAPI.Persistence.csproj.CoreCompileInputs.cache
-C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerceAPI.Persistence\obj\Debug\net6.0\ECommerceAPI.Persistence.csproj.CopyComplete
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerceAPI.Persistence\obj\Debug\net6.0\ECommerceAPI.Persistence.dll
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerceAPI.Persistence\obj\Debug\net6.0\refint\ECommerceAPI.Persistence.dll
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerceAPI.Persistence\obj\Debug\net6.0\ECommerceAPI.Persistence.pdb
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerceAPI.Persistence\obj\Debug\net6.0\ECommerceAPI.Persistence.genruntimeconfig.cache
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerceAPI.Persistence\obj\Debug\net6.0\ref\ECommerceAPI.Persistence.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerceAPI.Persistence\obj\Debug\net6.0\ECommerceAPI.Persistence.sourcelink.json
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerceAPI.Persistence\obj\Debug\net6.0\ECommerc.A54A3D56.Up2Date

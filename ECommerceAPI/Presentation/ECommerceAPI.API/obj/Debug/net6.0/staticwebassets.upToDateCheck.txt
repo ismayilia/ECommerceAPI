@@ -1,0 +1,6 @@
+wwwroot\photo-images\16165b12-a681-486a-8cdd-88c74f86a0af-featured.jpg
+wwwroot\photo-images\bloglates1.jpg
+wwwroot\photo-images\evade.jpg
+wwwroot\photo-images\evade-2.jpg
+wwwroot\photo-images\evade-3.jpg
+wwwroot\photo-images\mechanical.jpg

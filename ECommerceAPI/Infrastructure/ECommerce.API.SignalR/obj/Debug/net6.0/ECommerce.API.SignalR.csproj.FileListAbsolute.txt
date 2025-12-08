@@ -10,8 +10,9 @@ C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.Signa
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ECommerce.API.SignalR.AssemblyInfoInputs.cache
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ECommerce.API.SignalR.AssemblyInfo.cs
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ECommerce.API.SignalR.csproj.CoreCompileInputs.cache
-C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ECommerce.API.SignalR.csproj.CopyComplete
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ECommerce.API.SignalR.dll
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\refint\ECommerce.API.SignalR.dll
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ECommerce.API.SignalR.pdb
 C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ref\ECommerce.API.SignalR.dll
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ECommerce.API.SignalR.sourcelink.json
+C:\Users\HP\Desktop\ECommerceAPI\ECommerceAPI\Infrastructure\ECommerce.API.SignalR\obj\Debug\net6.0\ECommerc.88BD7C5A.Up2Date
