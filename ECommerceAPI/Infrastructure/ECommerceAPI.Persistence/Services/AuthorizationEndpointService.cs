@@ -37,6 +37,7 @@ namespace ECommerceAPI.Persistence.Services
 			_roleManager = roleManager;
 		}
 
+		//Endpoints
 		public async Task AssignRoleEndpointAsync(string[] roles, string menu, string code, Type type)
 		{
 			Menu _menu = await _menuReadRepository.GetSingleAsync(m => m.Name == menu);
